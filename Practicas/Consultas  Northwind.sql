@@ -5,8 +5,6 @@ FROM Employees
 INNER JOIN EmployeeTerritories ON Employees.EmployeeID = EmployeeTerritories.EmployeeID
 INNER JOIN Territories ON EmployeeTerritories.TerritoryID = Territories.TerritoryID;
 
-
-
 /* 2 Consulta seleccionar los nombres de los empleados y su descripcion de territorio en la que se asigna where especifica el terrirtorio*/
 SELECT Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado', Territories.TerritoryDescription as 'Descripcion de Territorio'
 FROM Employees
@@ -14,109 +12,78 @@ INNER JOIN EmployeeTerritories ON Employees.EmployeeID = EmployeeTerritories.Emp
 INNER JOIN Territories ON EmployeeTerritories.TerritoryID = Territories.TerritoryID
  WHERE Territories.TerritoryDescription = 'Boston ';              
 
-
-/* 3 Consulta Seleccionar los nombres de los empleados y su descripcion de territorio en la que se asignan where especifica el terrirtorio*/
-SELECT Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado', Territories.TerritoryDescription as 'Descripcion de Territorio'
-FROM Employees
-INNER JOIN EmployeeTerritories ON Employees.EmployeeID = EmployeeTerritories.EmployeeID
-INNER JOIN Territories ON EmployeeTerritories.TerritoryID = Territories.TerritoryID
- WHERE Territories.TerritoryDescription = 'Santa Clara '; 
+ /* 3 consulta: Seleccionar los detalles de pedidos y ordenarlos por el nombre de cliente */
+SELECT  Orders.OrderID AS 'idPedido',   Customers.ContactName AS 'Nombre de Cliente'
+FROM  Orders
+INNER JOIN  Customers ON Orders.CustomerID = Customers.CustomerID
+ORDER BY   Customers.ContactName;
 
 
- /* 4 Consulta seleccionar los nombres de los empleados y su descripcion de territorio en la que se asignan where especifica el terrirtorio*/
-SELECT Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado', Territories.TerritoryDescription as 'Descripcion de Territorio'
-FROM Employees
-INNER JOIN EmployeeTerritories ON Employees.EmployeeID = EmployeeTerritories.EmployeeID
-INNER JOIN Territories ON EmployeeTerritories.TerritoryID = Territories.TerritoryID
- WHERE Territories.TerritoryDescription = 'Bloomfield Hills '; 
+/* 4 Consulta: Seleccionar los detalles de pedidos y convertir el nombre de cliente a minúsculas */
+SELECT   Orders.OrderID AS 'idPedido',   LOWER(Customers.ContactName) AS 'Nombre de Cliente en Minúsculas'
+FROM   Orders
+INNER JOIN   Customers ON Orders.CustomerID = Customers.CustomerID;
+
+/* 5 Consulta: Seleccionar los productos y ordenarlos por el nombre del proveedor */
+SELECT   Products.ProductName AS 'Nombre de Producto',     Suppliers.CompanyName AS 'Nombre de Proveedor'
+FROM    Products
+INNER JOIN    Suppliers ON Products.SupplierID = Suppliers.SupplierID
+ORDER BY     Suppliers.CompanyName;
+
+/* 6 Consulta: Obtener el pedido con la fecha de entrega máxima */
+SELECT   Orders.OrderID AS 'ID de Pedido',   MAX(Orders.RequiredDate) AS 'Fecha de Entrega Máxima'
+FROM    Orders
+INNER JOIN    [Order Details] ON Orders.OrderID = [Order Details].OrderID
+GROUP BY  Orders.OrderID;
+
+/* 7 Consulta: Obtener el producto con la cantidad mínima en detalles de pedidos */
+SELECT   Products.ProductName AS 'Nombre de Producto',   MIN([Order Details].Quantity) AS 'Cantidad Mínima'
+FROM    Products
+INNER JOIN    [Order Details] ON Products.ProductID = [Order Details].ProductID
+GROUP BY    Products.ProductName;
+
+/* 8 Consulta: Obtener el nombre de categoría en mayúsculas */
+SELECT  UPPER(Categories.CategoryName) AS 'Nombre de Categoría en Mayúsculas'
+FROM    Categories
+INNER JOIN    Products ON Categories.CategoryID = Products.CategoryID;
+
+/* 9 Consulta: Obtener los apellidos de empleados en minúsculas */
+SELECT    Employees.LastName AS 'Apellido en Minúsculas'
+FROM    Employees
+INNER JOIN    Orders ON Employees.EmployeeID = Orders.EmployeeID;
+
+/* 10 Consulta: Obtener el pedido con la cantidad mínima en detalles de pedidos */
+SELECT     Orders.OrderID AS 'idPedido',     MIN([Order Details].Quantity) AS 'Cantidad Mínima'
+FROM     Orders
+INNER JOIN     [Order Details] ON Orders.OrderID = [Order Details].OrderID
+GROUP BY    Orders.OrderID;
+
+/* 11 Consulta: Obtener el pedido con la cantidad maxima en detalles de pedidos */
+SELECT     Orders.OrderID AS 'idPedido',     MAX([Order Details].Quantity) AS 'Cantidad Mínima'
+FROM     Orders
+INNER JOIN     [Order Details] ON Orders.OrderID = [Order Details].OrderID
+GROUP BY    Orders.OrderID;
 
 
-/* 5 consulta selecciona el nombre de la categoría de productos y el nombre de los productos. */
-SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto'
-FROM Categories
-INNER JOIN Products ON Categories.CategoryID = Products.CategoryID;
+/* 12 Consulta: Seleccionar productos y ordenarlos por el nombre de categoría */
+SELECT   Products.ProductName AS 'Nombre de Producto', 
+    Categories.CategoryName AS 'Nombre de Categoría'
+FROM   Products
+INNER JOIN   Categories ON Products.CategoryID = Categories.CategoryID
+ORDER BY   Categories.CategoryName;
 
+/* 13 Consulta: Seleccionar empleados y ordenarlos por apellido */
+SELECT   Employees.LastName AS 'Apellido de Empleado',   Employees.FirstName AS 'Nombre de Empleado'
+FROM   Employees
+INNER JOIN     Orders ON Employees.EmployeeID = Orders.EmployeeID
+ORDER BY   Employees.LastName;
 
-
-/* 6 consulta obtiene ID de orden, el nombre de la compañia, la fecha de orden, el contactor 
-y WHERE busca espesificamente . */
-SELECT Orders.OrderID as 'Id de Orden', Customers.CompanyName as 'Nombre de Compañia',Orders.OrderDate as 'Fecha de Orden', Customers.ContactName as 'Nombre de Contacto'
-FROM Orders
-INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
-WHERE Orders.OrderID = '10251 ';  
-
-
-/* 7 consulta obtiene ID de orden, el nombre de la compañia, la fecha de orden, el contactor 
-y WHERE busca espesificamente . */
-SELECT Orders.OrderID as 'Id de Orden', Customers.CompanyName as 'Nombre de compañia',Orders.OrderDate as 'Fecha de Orden', Customers.ContactName as 'Nombre de Contacto'
-FROM Orders
-INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
-WHERE Orders.OrderID = '10874 ' and Customers.CompanyName= 'Godos Cocina Típica ' ;  
-
-
-/* 8 consulta obtiene ID de orden, el nombre de la compañia, la fecha de orden, el contactor 
-y WHERE busca espesificamente . */
-SELECT Orders.OrderID as 'Id de Orden', Customers.CompanyName as 'Nombre de compañia',Orders.OrderDate as 'Fecha de Orden', Customers.ContactName as 'Nombre de Contacto'
-FROM Orders
-INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
-WHERE Orders.OrderID = '10253 ';  
-
-
-/* 9 consulta selecciona el ID del pedido , el nombre del cliente,
-el nombre del empleado y solo devuelve los registros donde la fecha de envío no sea nula*/
-SELECT Orders.OrderID as 'Id de Orden', Customers.CompanyName as 'Nombre de compañia', Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado'
-FROM Orders
-INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
-INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
-WHERE Orders.ShippedDate IS NOT NULL;
-
-
-/* 10 consulta obtiene el ID del pedido , el nombre del producto  y la cantidad de productos en cada pedido. 
- solo devolverá registros donde la fecha de envío (ShippedDate) no sea nula. */
-SELECT Orders.OrderID as 'Id de Orden', Products.ProductName as 'Nombre de Producto', [Order Details].Quantity as 'Cantidades'
-FROM Orders
-INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
-INNER JOIN Products ON [Order Details].ProductID = Products.ProductID
-WHERE Orders.ShippedDate IS NOT NULL;
-
-
-
-/* 11 consulta obtiene el ID de la orden  y el nombre del producto  y
-solo devuelve los registros donde el nombre del producto coincide con el valor especificado  WHERE*/
-SELECT Orders.OrderID as 'Id de Orden', Products.ProductName as 'Nombre de Producto'
-FROM Orders
-INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
-INNER JOIN Products ON [Order Details].ProductID = Products.ProductID
-WHERE Products.ProductName = 'Mozzarella di Giovanni';
-
-
-
-
-/* 12 consulta obtiene el nombre de la categoría, el nombre del producto y el nombre del proveedor*/
-SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de Compañia'
-FROM Products
-INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
-INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID;
-
-
-
-/* 13 consulta obtiene el nombre de la categoría, el nombre del producto y el nombre del proveedor 
-espesificando la categoria */
-SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de Compañia'
-FROM Products
-INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
-INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
-WHERE Categories.CategoryName = 'Seafood';
-
-
-
-/* 14 consulta obtiene el nombre de la categoría, el nombre del producto y el nombre del proveedor 
-espesificando la categoria */
-SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de Compañia'
-FROM Products
-INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
-INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
-WHERE Categories.CategoryName = 'Condiments';
+/* 14 Consulta: Seleccionar productos y ordenarlos por cantidad en detalles de pedidos */
+SELECT     Products.ProductName AS 'Nombre de Producto',     SUM([Order Details].Quantity) AS 'Cantidad Total'
+FROM    Products
+INNER JOIN    [Order Details] ON Products.ProductID = [Order Details].ProductID
+GROUP BY    Products.ProductName
+ORDER BY    SUM([Order Details].Quantity) DESC;
 
 
 
