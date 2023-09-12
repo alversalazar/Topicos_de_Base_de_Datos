@@ -31,40 +31,40 @@ INNER JOIN Territories ON EmployeeTerritories.TerritoryID = Territories.Territor
  WHERE Territories.TerritoryDescription = 'Bloomfield Hills '; 
 
 
-/* 5 consulta selecciona el nombre de la categorÌa de productos y el nombre de los productos. */
+/* 5 consulta selecciona el nombre de la categor√≠a de productos y el nombre de los productos. */
 SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto'
 FROM Categories
 INNER JOIN Products ON Categories.CategoryID = Products.CategoryID;
 
 
 
-/* 6 consulta obtiene ID de orden, el nombre de la compaÒia, la fecha de orden, el contactor 
+/* 6 consulta obtiene ID de orden, el nombre de la compa√±ia, la fecha de orden, el contactor 
 y WHERE busca espesificamente . */
-SELECT Orders.OrderID as 'Id de Orden', Customers.CompanyName as 'Nombre de CompaÒia',Orders.OrderDate as 'Fecha de Orden', Customers.ContactName as 'Nombre de Contacto'
+SELECT Orders.OrderID as 'Id de Orden', Customers.CompanyName as 'Nombre de Compa√±ia',Orders.OrderDate as 'Fecha de Orden', Customers.ContactName as 'Nombre de Contacto'
 FROM Orders
 INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
 WHERE Orders.OrderID = '10251 ';  
 
 
-/* 7 consulta obtiene ID de orden, el nombre de la compaÒia, la fecha de orden, el contactor 
+/* 7 consulta obtiene ID de orden, el nombre de la compa√±ia, la fecha de orden, el contactor 
 y WHERE busca espesificamente . */
-SELECT Orders.OrderID as 'Id de Orden', Customers.CompanyName as 'Nombre de compaÒia',Orders.OrderDate as 'Fecha de Orden', Customers.ContactName as 'Nombre de Contacto'
+SELECT Orders.OrderID as 'Id de Orden', Customers.CompanyName as 'Nombre de compa√±ia',Orders.OrderDate as 'Fecha de Orden', Customers.ContactName as 'Nombre de Contacto'
 FROM Orders
 INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
-WHERE Orders.OrderID = '10874 ' and Customers.CompanyName= 'Godos Cocina TÌpica ' ;  
+WHERE Orders.OrderID = '10874 ' and Customers.CompanyName= 'Godos Cocina T√≠pica ' ;  
 
 
-/* 8 consulta obtiene ID de orden, el nombre de la compaÒia, la fecha de orden, el contactor 
+/* 8 consulta obtiene ID de orden, el nombre de la compa√±ia, la fecha de orden, el contactor 
 y WHERE busca espesificamente . */
-SELECT Orders.OrderID as 'Id de Orden', Customers.CompanyName as 'Nombre de compaÒia',Orders.OrderDate as 'Fecha de Orden', Customers.ContactName as 'Nombre de Contacto'
+SELECT Orders.OrderID as 'Id de Orden', Customers.CompanyName as 'Nombre de compa√±ia',Orders.OrderDate as 'Fecha de Orden', Customers.ContactName as 'Nombre de Contacto'
 FROM Orders
 INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
 WHERE Orders.OrderID = '10253 ';  
 
 
 /* 9 consulta selecciona el ID del pedido , el nombre del cliente,
-el nombre del empleado y solo devuelve los registros donde la fecha de envÌo no sea nula*/
-SELECT Orders.OrderID as 'Id de Orden', Customers.CompanyName as 'Nombre de compaÒia', Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado'
+el nombre del empleado y solo devuelve los registros donde la fecha de env√≠o no sea nula*/
+SELECT Orders.OrderID as 'Id de Orden', Customers.CompanyName as 'Nombre de compa√±ia', Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado'
 FROM Orders
 INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
 INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
@@ -72,7 +72,7 @@ WHERE Orders.ShippedDate IS NOT NULL;
 
 
 /* 10 consulta obtiene el ID del pedido , el nombre del producto  y la cantidad de productos en cada pedido. 
- solo devolver· registros donde la fecha de envÌo (ShippedDate) no sea nula. */
+ solo devolver√° registros donde la fecha de env√≠o (ShippedDate) no sea nula. */
 SELECT Orders.OrderID as 'Id de Orden', Products.ProductName as 'Nombre de Producto', [Order Details].Quantity as 'Cantidades'
 FROM Orders
 INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
@@ -92,17 +92,17 @@ WHERE Products.ProductName = 'Mozzarella di Giovanni';
 
 
 
-/* 12 consulta obtiene el nombre de la categorÌa, el nombre del producto y el nombre del proveedor*/
-SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de CompaÒia'
+/* 12 consulta obtiene el nombre de la categor√≠a, el nombre del producto y el nombre del proveedor*/
+SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
 INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID;
 
 
 
-/* 13 consulta obtiene el nombre de la categorÌa, el nombre del producto y el nombre del proveedor 
+/* 13 consulta obtiene el nombre de la categor√≠a, el nombre del producto y el nombre del proveedor 
 espesificando la categoria */
-SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de CompaÒia'
+SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
 INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -110,9 +110,9 @@ WHERE Categories.CategoryName = 'Seafood';
 
 
 
-/* 14 consulta obtiene el nombre de la categorÌa, el nombre del producto y el nombre del proveedor 
+/* 14 consulta obtiene el nombre de la categor√≠a, el nombre del producto y el nombre del proveedor 
 espesificando la categoria */
-SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de CompaÒia'
+SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
 INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -120,19 +120,19 @@ WHERE Categories.CategoryName = 'Condiments';
 
 
 
-/* 15 consulta obtiene el nombre de la categorÌa, el nombre del producto y el nombre del proveedor 
+/* 15 consulta obtiene el nombre de la categor√≠a, el nombre del producto y el nombre del proveedor 
 espesificando la categoria */
-SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de CompaÒia'
+SELECT Categories.CategoryName as 'Nombre de Categoria', Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
 INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
 WHERE Categories.CategoryName = 'Dairy Products';
 
 
-/* 16 consulta obtiene el nombre de la categorÌa  y el nombre del proveedor  y 
-cuenta la cantidad de productos (TotalProducts) en cada combinaciÛn de categorÌa y proveedor.
+/* 16 consulta obtiene el nombre de la categor√≠a  y el nombre del proveedor  y 
+cuenta la cantidad de productos (TotalProducts) en cada combinaci√≥n de categor√≠a y proveedor.
 Luego, agrupa los resultados por CategoryName y CompanyName utilizando GROUP BY.*/
-SELECT Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia', COUNT(Products.ProductID) AS 'Total de Productos'
+SELECT Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia', COUNT(Products.ProductID) AS 'Total de Productos'
 FROM Products
 INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
 INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -140,10 +140,10 @@ GROUP BY Categories.CategoryName, Suppliers.CompanyName;
 
 
 /**/
-/* 17 consulta obtiene el nombre de la categorÌa  y el nombre del proveedor  y 
-cuenta la cantidad de productos (TotalProducts) en cada combinaciÛn de categorÌa y proveedor.
+/* 17 consulta obtiene el nombre de la categor√≠a  y el nombre del proveedor  y 
+cuenta la cantidad de productos (TotalProducts) en cada combinaci√≥n de categor√≠a y proveedor.
 Luego, agrupa los resultados por CategoryName y CompanyName utilizando GROUP BY Y WHERE*/
-SELECT Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia', COUNT(Products.ProductID) AS 'Total de Productos'
+SELECT Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia', COUNT(Products.ProductID) AS 'Total de Productos'
 FROM Products
 INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
 INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -153,10 +153,10 @@ GROUP BY Categories.CategoryName, Suppliers.CompanyName;
 
 
 
-/* 18 consulta obtiene el nombre de la categorÌa  y el nombre del proveedor  y 
-cuenta la cantidad de productos (TotalProducts) en cada combinaciÛn de categorÌa y proveedor.
+/* 18 consulta obtiene el nombre de la categor√≠a  y el nombre del proveedor  y 
+cuenta la cantidad de productos (TotalProducts) en cada combinaci√≥n de categor√≠a y proveedor.
 Luego, agrupa los resultados por CategoryName y CompanyName utilizando GROUP BY Y WHERE.*/
-SELECT Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia', COUNT(Products.ProductID) AS 'Total de Productos' 
+SELECT Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia', COUNT(Products.ProductID) AS 'Total de Productos' 
 FROM Products
 INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
 INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -164,10 +164,10 @@ WHERE Categories.CategoryName = 'Meat/Poultry'
 GROUP BY Categories.CategoryName, Suppliers.CompanyName;
 
 /**/
-/* 19 consulta obtiene el nombre de la categorÌa  y el nombre del proveedor  y 
-cuenta la cantidad de productos (TotalProducts) en cada combinaciÛn de categorÌa y proveedor.
+/* 19 consulta obtiene el nombre de la categor√≠a  y el nombre del proveedor  y 
+cuenta la cantidad de productos (TotalProducts) en cada combinaci√≥n de categor√≠a y proveedor.
 Luego, agrupa los resultados por CategoryName y CompanyName utilizando GROUP BY Y WHERE.*/
-SELECT Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia', COUNT(Products.ProductID) AS 'Total de Productos'
+SELECT Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia', COUNT(Products.ProductID) AS 'Total de Productos'
 FROM Products
 INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
 INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -175,10 +175,10 @@ WHERE Suppliers.CompanyName = 'Tokyo Traders'
 GROUP BY Categories.CategoryName, Suppliers.CompanyName;
 /**/
 
-/* 20 consulta obtiene el nombre de la categorÌa  y el nombre del proveedor  y 
-cuenta la cantidad de productos (TotalProducts) en cada combinaciÛn de categorÌa y proveedor.
+/* 20 consulta obtiene el nombre de la categor√≠a  y el nombre del proveedor  y 
+cuenta la cantidad de productos (TotalProducts) en cada combinaci√≥n de categor√≠a y proveedor.
 Luego, agrupa los resultados por CategoryName y CompanyName utilizando GROUP BY Y WHERE.*/
-SELECT Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia', COUNT(Products.ProductID) AS 'Total de Productos'
+SELECT Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia', COUNT(Products.ProductID) AS 'Total de Productos'
 FROM Products
 INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID
 INNER JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -186,59 +186,59 @@ WHERE Suppliers.CompanyName = 'New England Seafood Cannery'
 GROUP BY Categories.CategoryName, Suppliers.CompanyName;
 
 
-/* 21 consulta obtiene el ID del pedido  y el nombre de la compaÒia */
+/* 21 consulta obtiene el ID del pedido  y el nombre de la compa√±ia */
 
-SELECT Orders.OrderID as 'Nombre de Categoria', Shippers.CompanyName as 'Nombre de CompaÒia'
+SELECT Orders.OrderID as 'Nombre de Categoria', Shippers.CompanyName as 'Nombre de Compa√±ia'
 FROM Orders
 INNER JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID;
 
 
-/* 22 consulta obtiene el ID del pedido  y el nombre de la compaÒia y where para buscar especificamente la compaÒia*/
-SELECT Orders.OrderID as 'Nombre de Categoria', Shippers.CompanyName as 'Nombre de CompaÒia'
+/* 22 consulta obtiene el ID del pedido  y el nombre de la compa√±ia y where para buscar especificamente la compa√±ia*/
+SELECT Orders.OrderID as 'Nombre de Categoria', Shippers.CompanyName as 'Nombre de Compa√±ia'
 FROM Orders
 INNER JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Shippers.CompanyName = 'Federal Shipping';
 
-/* 23 consulta OBTIEne el ID del pedido  y el nombre de la compaÒia y where para buscar especificamente la compaÒia*/
-SELECT Orders.OrderID as 'Nombre de Categoria', Shippers.CompanyName as 'Nombre de CompaÒia'
+/* 23 consulta obtiene el ID del pedido  y el nombre de la compa√±ia y where para buscar especificamente la compa√±ia*/
+SELECT Orders.OrderID as 'Nombre de Categoria', Shippers.CompanyName as 'Nombre de Compa√±ia'
 FROM Orders
 INNER JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Shippers.CompanyName = 'United Package';
 /**/
-/* 24 consulta OBTIEne el ID del pedido  y el nombre de la compaÒia , 
-y where para buscar especificamente la compaÒia y nombre del transportista*/
-SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de Ship', Shippers.CompanyName as 'Nombre de CompaÒia'
+/* 24 consulta obtiene el ID del pedido  y el nombre de la compa√±ia , 
+y where para buscar especificamente la compa√±ia y nombre del transportista*/
+SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de Ship', Shippers.CompanyName as 'Nombre de Compa√±ia'
 FROM Orders
 INNER JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Orders.ShipName = 'Ernst Handel' and Shippers.CompanyName= 'United Package';
 
-/* 25 consulta OBTIEne el ID del pedido  y el nombre de la compaÒia , 
-y where para buscar especificamente la compaÒia y nombre del transportista*/
-SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de Ship', Shippers.CompanyName as 'Nombre de CompaÒia', Shippers.Phone as 'Telefono'
+/* 25 consulta obtiene el ID del pedido  y el nombre de la compa√±ia , 
+y where para buscar especificamente la compa√±ia y nombre del transportista*/
+SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de Ship', Shippers.CompanyName as 'Nombre de Compa√±ia', Shippers.Phone as 'Telefono'
 FROM Orders
 INNER JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Orders.ShipName = 'Hanari Carnes' and Shippers.CompanyName= 'Federal Shipping';
 
 /**/
-/* 26 consulta OBTIEne el ID del pedido  y el nombre de la compaÒia , 
+/* 26 consulta obtiene el ID del pedido  y el nombre de la compa√±ia , 
 y where para buscar especificamente el ID*/
-SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de Ship', Shippers.CompanyName as 'Nombre de CompaÒia', Shippers.Phone as 'Telefono'
+SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de Ship', Shippers.CompanyName as 'Nombre de Compa√±ia', Shippers.Phone as 'Telefono'
 FROM Orders
 INNER JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Orders.OrderID = '10265';
 /**/
 
-/* 27 consulta OBTIEne el ID del pedido  y el nombre de la compaÒia , 
+/* 27 consulta obtiene el ID del pedido  y el nombre de la compa√±ia , 
 y where para buscar especificamente el ID*/
-SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de Ship', Shippers.CompanyName as 'Nombre de CompaÒia', Shippers.Phone as 'Telefono'
+SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de Ship', Shippers.CompanyName as 'Nombre de Compa√±ia', Shippers.Phone as 'Telefono'
 FROM Orders
 INNER JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Orders.OrderID = '11061';
 /**/
 
-/* 28 consulta OBTIEne el ID del pedido  y el nombre de la compaÒia , 
+/* 28 consulta obtiene el ID del pedido  y el nombre de la compa√±ia , 
 y where para buscar especificamente el ID*/
-SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de Ship', Shippers.CompanyName as 'Nombre de CompaÒia', Shippers.Phone as 'Telefono'
+SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de Ship', Shippers.CompanyName as 'Nombre de Compa√±ia', Shippers.Phone as 'Telefono'
 FROM Orders
 INNER JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Orders.OrderID = '10269';
@@ -335,7 +335,7 @@ INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
 INNER JOIN Products ON [Order Details].ProductID = Products.ProductID;
 
 /* 39 consulta obtiene el nombre del cliente  y el nombre del producto */
-SELECT Customers.CompanyName as 'Nombre de CompaÒia', Products.ProductName as 'Nombre de Producto'
+SELECT Customers.CompanyName as 'Nombre de Compa√±ia', Products.ProductName as 'Nombre de Producto'
 FROM Customers
 INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
 INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
@@ -343,8 +343,8 @@ INNER JOIN Products ON [Order Details].ProductID = Products.ProductID;
 /**/
 
 
-/* 40 consulta obtiene el nombre de la compaÒia  y el nombre del producto Y WHERE espesifica la compaÒia*/
-SELECT Customers.CompanyName as 'Nombre de CompaÒia', Products.ProductName as 'Nombre de Producto'
+/* 40 consulta obtiene el nombre de la compa√±ia  y el nombre del producto Y WHERE espesifica la compa√±ia*/
+SELECT Customers.CompanyName as 'Nombre de Compa√±ia', Products.ProductName as 'Nombre de Producto'
 FROM Customers
 INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
 INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
@@ -353,8 +353,8 @@ INNER JOIN Products ON [Order Details].ProductID = Products.ProductID
 /**/
 
 
-/* 41 consulta obtiene el nombre de la compaÒia  y el nombre del producto Y WHERE espesifica la compaÒia*/
-SELECT Customers.CompanyName as 'Nombre de CompaÒia', Products.ProductName as 'Nombre de Producto'
+/* 41 consulta obtiene el nombre de la compa√±ia  y el nombre del producto Y WHERE espesifica la compa√±ia*/
+SELECT Customers.CompanyName as 'Nombre de Compa√±ia', Products.ProductName as 'Nombre de Producto'
 FROM Customers
 INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
 INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
@@ -362,8 +362,8 @@ INNER JOIN Products ON [Order Details].ProductID = Products.ProductID
  WHERE Customers.CompanyName = 'Great Lakes Food Market';
 /**/
 
-/* 42 consulta obtiene el nombre de la compaÒia  y el nombre del producto Y WHERE espesifica la compaÒia*/
-SELECT Customers.CompanyName as 'Nombre de CompaÒia', Products.ProductName as 'Nombre de producto'
+/* 42 consulta obtiene el nombre de la compa√±ia  y el nombre del producto Y WHERE espesifica la compa√±ia*/
+SELECT Customers.CompanyName as 'Nombre de Compa√±ia', Products.ProductName as 'Nombre de producto'
 FROM Customers
 INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
 INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
@@ -386,13 +386,13 @@ inner join Products B
 on (B.CategoryID = A.CategoryID)
 
 
-/* 45 Consulta Obtine los primeros 8 de cada tabla de category y Product */
+/* 45 Consulta obtiene los primeros 8 de cada tabla de category y Product */
 select *                                                             
 From Categories A														  
 inner join Products B												 
 on (B.ProductID = A.CategoryID)
 
-/* 46 Consulta Obtine el nombre de la categoria las unidades disponibles y el where espesifica el valor de 10:00 por unidad */
+/* 46 Consulta obtiene el nombre de la categoria las unidades disponibles y el where espesifica el valor de 10:00 por unidad */
 select A.CategoryName as 'Nombre de categoria',B.UnitsInStock as 'Unidades en Stock',B.UnitPrice as 'Precio por unidad' 
 From Categories A														  
 inner join Products B												  
@@ -400,7 +400,7 @@ on (B.CategoryID = A.CategoryID)
 where B.UnitPrice IN ('10.00')		
 
 
-/* 47 Consulta Obtine el nombre de la categoria las unidades que quedan y el where espesifica las que ya estan descontinuadas */
+/* 47 Consulta obtiene el nombre de la categoria las unidades que quedan y el where espesifica las que ya estan descontinuadas */
 select A.CategoryName as 'Nombre de categoria',B.UnitsInStock as 'Unidades en Stock',B.Discontinued as 'Descontinuadas' 
 From Categories A														  
 inner join Products B												  
@@ -408,7 +408,7 @@ on (B.CategoryID = A.CategoryID)
 where B.Discontinued IN ('0')		
 
 
-/* 48 Consulta Obtine el nombre de la categoria las unidades que quedan y el where espesifica las que ya estan descontinuadas */
+/* 48 Consulta obtiene el nombre de la categoria las unidades que quedan y el where espesifica las que ya estan descontinuadas */
 select A.CategoryName as 'Nombre de categoria',B.UnitsInStock as 'Unidades en Stock',B.Discontinued as 'Descontinuadas' 
 From Categories A														  
 inner join Products B												  
@@ -416,15 +416,15 @@ on (B.CategoryID = A.CategoryID)
 where B.Discontinued IN ('1')		
 
 
-/* 49 Consulta Obtine el nombre del producto de que compaÒia viene y donde esta su direccion */
-select A.ProductName as 'Nombre de producto',B.CompanyName as 'Nombre de compaÒia',B.Address as 'Direccion de compaÒia' 
+/* 49 Consulta obtiene el nombre del producto de que compa√±ia viene y donde esta su direccion */
+select A.ProductName as 'Nombre de producto',B.CompanyName as 'Nombre de compa√±ia',B.Address as 'Direccion de compa√±ia' 
 From Products A														  
 inner join Suppliers B												  
 on (B.SupplierID = A.ProductID)											  
 
 /**/
-/* 50 Consulta Obtine el nombre del producto su precio la compaÒia que lo hace su direccion codigo postal y el where espesifica que solo de usa */
-select A.ProductName as 'Nombre de producto',A.UnitPrice as 'Precio de producto',B.CompanyName as 'Nombre de compaÒia',B.Address as 'Direccion de compaÒia',B.PostalCode as 'Codigo postal',B.Country as 'Pais'  
+/* 50 Consulta obtiene el nombre del producto su precio la compa√±ia que lo hace su direccion codigo postal y el where espesifica que solo de usa */
+select A.ProductName as 'Nombre de producto',A.UnitPrice as 'Precio de producto',B.CompanyName as 'Nombre de compa√±ia',B.Address as 'Direccion de compa√±ia',B.PostalCode as 'Codigo postal',B.Country as 'Pais'  
 From Products A														  
 inner join Suppliers B												  
 on (B.SupplierID = A.ProductID)		
@@ -436,110 +436,220 @@ where B.Country IN ('USA')
 /**/
 /**/
 
---select * from Employees
---select * from EmployeeTerritories
---select * from Categories
+/* 51. Consulta que combina informaci√≥n de productos y detalles de pedidos utilizando INNER JOIN en la base de datos NORTHWIND. Se extraen los primeros 5 caracteres del nombre del producto. */
+SELECT Producto.ProductID AS 'ID de Producto',
+  SUBSTRING(Producto.ProductName, 1, 5) AS 'Primeros 5 Caracteres Nombre Producto'
+FROM   PRODUCTS AS Producto
+INNER JOIN   [Order Details] AS Detalle ON  Producto.ProductID = Detalle.ProductID;
 
---select * from Customers
---select * from CustomerDemographics
---select * from CustomerCustomerDemo
---select * from [Order Details]
---select * from Orders
---select * from Products
---select * from Region
---select * from Shippers
---select * from Suppliers
---select * from Territories
+/* 52. Consulta que combina informaci√≥n de pedidos y transportistas utilizando INNER JOIN en la base de datos NORTHWIND. Se extraen los primeros 4 caracteres del nombre del transportista. */
+SELECT Pedido.OrderID AS 'N√∫meroPedido', SUBSTRING(Transportista.CompanyName, 1, 4) AS 'Primeros4CaracteresNombreTransportista'
+FROM  ORDERS AS Pedido
+INNER JOIN  SHIPPERS AS Transportista ON  Pedido.ShipVia = Transportista.ShipperID;
 
---select * from Categories
---select * from Products
---select * from Suppliers
+/* 53. Consulta que combina informaci√≥n de detalles de pedidos y pedidos utilizando INNER JOIN en la base de datos NORTHWIND. Se extraen los primeros 5 caracteres del nombre del producto. */
+SELECT Detalle.OrderID AS 'N√∫mero de Pedido',SUBSTRING(Producto.ProductName, 1, 14) AS 'Primeros 14 Caracteres Nombre Producto'
+FROM [Order Details] AS Detalle
+INNER JOIN   ORDERS AS Pedido ON  Detalle.OrderID = Pedido.OrderID
+INNER JOIN PRODUCTS AS Producto ON  Detalle.ProductID = Producto.ProductID
+WHERE Producto.ProductName = 'Queso Manchego La Pastora';
 
+/* 54. Consulta que combina informaci√≥n de productos y proveedores utilizando INNER JOIN en la base de datos NORTHWIND. Se extraen los primeros 8 caracteres del nombre del proveedor. */
+SELECT Producto.ProductID AS 'ID de Producto',
+       SUBSTRING(Proveedor.CompanyName, 1, 11) AS 'Primeros 10 Caracteres Compa√±ia Proveedor'
+FROM   PRODUCTS AS Producto
+INNER JOIN  SUPPLIERS AS Proveedor
+ON  Producto.SupplierID = Proveedor.SupplierID
+WHERE Proveedor.CompanyName = 'New Orleans Cajun Delights';
 
+/* 55. Consulta que combina informaci√≥n de pedidos, clientes y empleados utilizando INNER JOIN en la base de datos NORTHWIND. Se extraen los primeros 5 caracteres del nombre del cliente. */
+SELECT  Pedido.OrderID AS 'N√∫mero de Pedido',
+        SUBSTRING(Cliente.ContactName, 1, 5) AS 'Primeros 5 Caracteres Contacto Cliente',
+        SUBSTRING(Empleado.LastName, 1, 5) AS 'Primeros 5 Caracteres Nombre Empleado'
+FROM ORDERS AS Pedido
+INNER JOIN  CUSTOMERS AS Cliente ON Pedido.CustomerID = Cliente.CustomerID
+INNER JOIN EMPLOYEES AS Empleado ON  Pedido.EmployeeID = Empleado.EmployeeID
+WHERE Cliente.ContactName = 'Jaime Yorres';
 
-/*consulta utiliza LEFT JOIN para combinar las tablas "Productos" y "CategorÌas" en funciÛn del ID de categorÌa (CategoryID). 
-Devolver· todos los productos y mostrar· la categorÌa a la que est·n asignadas, si tienen una. 
-Si un producto no est· asignado a una categorÌa, la columna "CategoryName" mostrar· NULL. y asi igual en las demas*/
+/* 56. Consulta que combina informaci√≥n de asignaciones de empleados a territorios, territorios y empleados utilizando INNER JOIN en la base de datos NORTHWIND. Se extraen los primeros 7 caracteres del nombre del territorio. */
+SELECT  Asignacion.EmployeeID AS 'ID de Empleado',SUBSTRING(Territorio.TerritoryDescription, 1, 7) AS 'Primeros 5 Caracteres Descripcion Territorio',
+  SUBSTRING(Empleado.LastName, 1, 5) AS 'Primeros 5 Caracteres Apellido Empleado'
+FROM  EMPLOYEETERRITORIES AS Asignacion
+INNER JOIN TERRITORIES AS Territorio ON  Asignacion.TerritoryID = Territorio.TerritoryID
+INNER JOIN EMPLOYEES AS Empleado ON  Asignacion.EmployeeID = Empleado.EmployeeID ;
 
-/* 51 Consulta obtiene el nombre de producto, nombre de categoria */
+/* 57. Consulta que combina informaci√≥n de proveedores, productos y categor√≠as utilizando INNER JOIN en la base de datos NORTHWIND. Se extraen los primeros 10 caracteres del nombre del producto. */
+SELECT 
+  Proveedor.CompanyName AS 'Nombre de Proveedor',
+  SUBSTRING(Producto.ProductName, 1, 10) AS 'Primeros 10 Caracteres Nombre Producto',
+  Categoria.CategoryName AS 'Nombre Categoria'
+FROM  PRODUCTS AS Producto
+INNER JOIN  SUPPLIERS AS Proveedor ON Producto.SupplierID = Proveedor.SupplierID
+INNER JOIN CATEGORIES AS Categoria ON  Producto.CategoryID = Categoria.CategoryID;
+
+/* 58. Consulta que utiliza HAVING para encontrar clientes que han realizado m√°s de 3 pedidos en la base de datos NORTHWIND. */
+SELECT  Cliente.CustomerID, COUNT(Pedido.OrderID) AS 'Total Pedidos'
+FROM  CUSTOMERS AS Cliente
+INNER JOIN  ORDERS AS Pedido ON   Cliente.CustomerID = Pedido.CustomerID
+GROUP BY  Cliente.CustomerID
+HAVING  COUNT(Pedido.OrderID) > 3;
+
+/* 59. Consulta que utiliza HAVING para encontrar empleados que hayan gestionado m√°s de 10 pedidos en la base de datos NORTHWIND. */
+SELECT  Empleado.EmployeeID, COUNT(Pedido.OrderID) AS 'TotalPedidosGestionados'
+FROM  EMPLOYEES AS Empleado
+INNER JOIN ORDERS AS Pedido ON  Empleado.EmployeeID = Pedido.EmployeeID
+GROUP BY  Empleado.EmployeeID
+HAVING COUNT(Pedido.OrderID) > 10;
+
+/* 60. Consulta que utiliza HAVING para encontrar categor√≠as de productos con m√°s de 5 productos en la base de datos NORTHWIND. */
+SELECT   Categoria.CategoryName AS 'Nombre Categoria',  COUNT(Producto.ProductID) AS 'Total Productos'
+FROM   CATEGORIES AS Categoria
+INNER JOIN  PRODUCTS AS Producto ON   Categoria.CategoryID = Producto.CategoryID
+GROUP BY   Categoria.CategoryName
+HAVING  COUNT(Producto.ProductID) > 5;
+
+/* 61. Consulta que utiliza HAVING para encontrar productos con m√°s de 100 unidades vendidas en detalles de pedidos en la base de datos NORTHWIND. */
+SELECT Producto.ProductName AS 'Nombre Producto', SUM(Detalle.Quantity) AS 'Total Unidades Vendidas'
+FROM  PRODUCTS AS Producto
+INNER JOIN  [Order Details] AS Detalle
+ON  Producto.ProductID = Detalle.ProductID
+GROUP BY   Producto.ProductName
+HAVING  SUM(Detalle.Quantity) > 100;
+
+/* 62. Consulta que utiliza HAVING para encontrar transportistas que han entregado m√°s de 50 pedidos en la base de datos NORTHWIND. */
+SELECT  Transportista.CompanyName AS 'Nombre Transportista',COUNT(Pedido.OrderID) AS 'Total Pedidos Entregados'
+FROM  SHIPPERS AS Transportista
+INNER JOIN  ORDERS AS Pedido ON  Transportista.ShipperID = Pedido.ShipVia
+GROUP BY  Transportista.CompanyName
+HAVING   COUNT(Pedido.OrderID) > 50;
+
+/* 63. Consulta que utiliza una filtraci√≥n por fecha para encontrar detalles de pedidos de productos vendidos despu√©s de una fecha espec√≠fica en la base de datos NORTHWIND. */
+SELECT  Detalle.OrderID AS 'Numero Pedido',  Detalle.ProductID AS 'idProducto',  Detalle.Quantity AS 'Cantidad', Pedido.OrderDate AS 'Fecha Buscada'
+FROM [Order Details] AS Detalle
+INNER JOIN ORDERS AS Pedido ON  Detalle.OrderID = Pedido.OrderID
+WHERE  Pedido.OrderDate > '1998-05-05 00:00:00.000';
+
+/* 64. Consulta que utiliza una filtraci√≥n por tipo (CategoryName) y marca (SupplierName) de productos en la base de datos NORTHWIND. */
+SELECT  Producto.ProductName AS 'Nombre Producto', Categoria.CategoryName AS 'Tipo Producto',  Proveedor.CompanyName AS 'Nombre Compa√±ia'
+FROM   PRODUCTS AS Producto
+INNER JOIN  SUPPLIERS AS Proveedor ON  Producto.SupplierID = Proveedor.SupplierID
+INNER JOIN   CATEGORIES AS Categoria ON   Producto.CategoryID = Categoria.CategoryID
+WHERE  Categoria.CategoryName = 'Grains/Cereals' ;
+
+/* 65. Consulta que utiliza una filtraci√≥n por fecha para encontrar pedidos realizados despu√©s de una fecha espec√≠fica junto con informaci√≥n de clientes y empleados en la base de datos NORTHWIND. */
+SELECT  Pedido.OrderID AS 'idPedido', Cliente.ContactName AS 'Nombre Cliente',  Empleado.FirstName AS 'Nombre Empleado',  Pedido.OrderDate AS 'Fecha Pedido'
+FROM   ORDERS AS Pedido
+INNER JOIN  CUSTOMERS AS Cliente ON  Pedido.CustomerID = Cliente.CustomerID
+INNER JOIN  EMPLOYEES AS Empleado ON   Pedido.EmployeeID = Empleado.EmployeeID
+WHERE   Pedido.OrderDate > '1998-05-04 00:00:00.000';
+
+/* 66. Consulta que utiliza una filtraci√≥n por tipo (CategoryName) y marca (SupplierName) de productos junto con informaci√≥n de proveedores y categor√≠as en la base de datos NORTHWIND. */
+SELECT  Producto.ProductName AS 'Nombre Producto',  Categoria.CategoryName AS 'Categoria',  Proveedor.CompanyName AS 'Proveedor'
+FROM  PRODUCTS AS Producto
+INNER JOIN  SUPPLIERS AS Proveedor ON  Producto.SupplierID = Proveedor.SupplierID
+INNER JOIN CATEGORIES AS Categoria ON  Producto.CategoryID = Categoria.CategoryID
+WHERE  Categoria.CategoryName = 'Seafood' AND Proveedor.CompanyName = 'Tokyo Traders';
+
+/* 67. Consulta que utiliza una filtraci√≥n por tipo (CategoryName) y marca (SupplierName) de productos junto con informaci√≥n de categor√≠as en la base de datos NORTHWIND. */
+SELECT   Producto.ProductName AS 'NombreProducto',  Categoria.CategoryName AS 'Categoria'
+FROM  PRODUCTS AS Producto
+INNER JOIN  CATEGORIES AS Categoria ON  Producto.CategoryID = Categoria.CategoryID
+WHERE   Categoria.CategoryName = 'Confections' OR Producto.ProductName LIKE '%Northwoods Cranberry Sauce%';
+
+/* 68. Consulta que utiliza una filtraci√≥n por tipo (CategoryName) y marca (SupplierName) de productos junto con informaci√≥n de categor√≠as en la base de datos NORTHWIND. */
+SELECT   Producto.ProductName AS 'NombreProducto',  Categoria.CategoryName AS 'Categoria'
+FROM  PRODUCTS AS Producto
+INNER JOIN  CATEGORIES AS Categoria ON  Producto.CategoryID = Categoria.CategoryID
+WHERE   Categoria.CategoryName = 'Dairy Products' OR Producto.ProductName LIKE '%Aniseed Syrup%';
+
+/* 69. Consulta que utiliza una filtraci√≥n por tipo (CategoryName) y marca (SupplierName) de productos junto con informaci√≥n de categor√≠as en la base de datos NORTHWIND. */
+SELECT   Producto.ProductName AS 'NombreProducto',  Categoria.CategoryName AS 'Categoria'
+FROM  PRODUCTS AS Producto
+INNER JOIN  CATEGORIES AS Categoria ON  Producto.CategoryID = Categoria.CategoryID
+WHERE   Categoria.CategoryName = 'Meat/Poultry' OR Producto.ProductName LIKE '%Chang%';
+
+/* 70. Consulta que combina informaci√≥n de pedidos y clientes utilizando INNER JOIN en la base de datos NORTHWIND. Se extraen los primeros 5 caracteres del nombre del cliente. */
+SELECT Pedido.OrderID AS 'N√∫mero Pedido',SUBSTRING(Cliente.CompanyName, 1, 5) AS 'Primeros 5 Caracteres Nombre Cliente'
+FROM ORDERS AS Pedido
+INNER JOIN  CUSTOMERS AS Cliente ON Pedido.CustomerID = Cliente.CustomerID;
+
+/* 71. Consulta que combina informaci√≥n de empleados y pedidos utilizando INNER JOIN en la base de datos NORTHWIND. Se extraen los primeros 3 caracteres del apellido del empleado. */
+SELECT Empleado.EmployeeID AS 'ID de Empleado',SUBSTRING(Empleado.LastName, 1, 3) AS 'Primeros 3 Caracteres Apellido Empleado'
+FROM  EMPLOYEES AS Empleado
+INNER JOIN ORDERS AS Pedido ON Empleado.EmployeeID = Pedido.EmployeeID;
+
+/* 72. Consulta que combina informaci√≥n de productos y categor√≠as utilizando INNER JOIN en la base de datos NORTHWIND. Se extraen los primeros 10 caracteres del nombre del producto. */
+SELECT  Producto.ProductID AS 'IDProducto', SUBSTRING(Producto.ProductName, 1, 10) AS 'Primeros 10 Caracteres Nombre Producto'
+FROM  PRODUCTS AS Producto
+INNER JOIN   CATEGORIES AS Categoria ON  Producto.CategoryID = Categoria.CategoryID;
+
+/*73. Consulta obtiene el nombre de producto, nombre de categoria */
 SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria'
 FROM Products
 LEFT JOIN Categories ON Products.CategoryID = Categories.CategoryID;
 
-
-/* 52 Consulta obtiene el nombre del producto, descontinuado, nombre de categoria, descripcion*/
-SELECT Products.ProductName as 'Nombre de Producto',Products.Discontinued as 'Descontinuado', Categories.CategoryName as 'Nombre de Categoria',Categories.Description as 'Descripcion'
+/*74. Consulta obtiene el nombre del producto, descontinuado, nombre de categoria, descripcion*/
+SELECT Products.ProductName as 'Nombre de Producto', Products.Discontinued as 'Descontinuado', Categories.CategoryName as 'Nombre de Categoria', Categories.Description as 'Descripcion'
 FROM Products
 LEFT JOIN Categories ON Products.CategoryID = Categories.CategoryID;
 
-
-/* 53 Consulta obtiene el nombre del producto, descontinuado, nombre de categoria, descripcion*/
+/*75. Consulta obtiene el nombre del producto, descontinuado, nombre de categoria, descripcion*/
 SELECT Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado', Orders.OrderID as 'Orden'
 FROM Employees
 LEFT JOIN Orders ON Employees.EmployeeID = Orders.EmployeeID;
 
-
-/* 54 Consulta obtiene Nombre del empleado, apellido, id de orden, orden de fecha, fecha de requerido*/
-SELECT Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado', Orders.OrderID as 'Id de Orden', Orders.OrderDate as 'Orden de Fecha',Orders.RequiredDate as 'Fecha de Requerido'
+/*76. Consulta obtiene Nombre del empleado, apellido, id de orden, orden de fecha, fecha de requerido*/
+SELECT Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado', Orders.OrderID as 'Id de Orden', Orders.OrderDate as 'Orden de Fecha', Orders.RequiredDate as 'Fecha de Requerido'
 FROM Employees
 LEFT JOIN Orders ON Employees.EmployeeID = Orders.EmployeeID;
 
-
-/* 55 Consulta obtiene nombre de ship, nombre de compaÒia, numero de compaÒia*/
-SELECT Orders.ShipName as 'Nombre de ShÌp',Shippers.CompanyName as 'Nombre de CompaÒia', Orders.OrderID as 'Numero de Orden'
+/*77. Consulta obtiene nombre de ship, nombre de compa√±ia, numero de compa√±ia*/
+SELECT Orders.ShipName as 'Nombre de Sh√≠p', Shippers.CompanyName as 'Nombre de Compa√±ia', Orders.OrderID as 'Numero de Orden'
 FROM Shippers
 LEFT JOIN Orders ON Shippers.ShipperID = Orders.ShipVia;
 
-
-/* 56 Consulta obtiene nombre de ship, nombre de compaÒia, numero de compaÒia, telefono*/
-SELECT Orders.ShipName as 'Nombre de ShÌp',Shippers.CompanyName as 'Nombre de CompaÒia', Orders.OrderID as 'Numero de Orden',Shippers.Phone as 'Telefono'
+/*78. Consulta obtiene nombre de ship, nombre de compa√±ia, numero de compa√±ia, telefono*/
+SELECT Orders.ShipName as 'Nombre de Sh√≠p', Shippers.CompanyName as 'Nombre de Compa√±ia', Orders.OrderID as 'Numero de Orden', Shippers.Phone as 'Telefono'
 FROM Shippers
 LEFT JOIN Orders ON Shippers.ShipperID = Orders.ShipVia;
 
-
-
-/* 57 Consulta obtiene el nombre de la compaÒia, orden de fecha*/
-SELECT Customers.CompanyName as 'Nombre de CompaÒia', Orders.OrderDate as 'Orden de Fecha'
+/*79. Consulta obtiene el nombre de la compa√±ia, orden de fecha*/
+SELECT Customers.CompanyName as 'Nombre de Compa√±ia', Orders.OrderDate as 'Orden de Fecha'
 FROM Customers
 LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
 
-
-/* 58 Consulta obtiene el nombre de la compaÒia, nombre de contacto, ciudad, orden de fecha, fecha de requerido*/
-SELECT Customers.CompanyName as 'Nombre de CompaÒia',Customers.ContactName as 'Nombre de Contacto',Customers.City as 'Ciudad', Orders.OrderDate as 'Orden de Fecha', Orders.RequiredDate as 'Feche de requerido'
+/*80. Consulta obtiene el nombre de la compa√±ia, nombre de contacto, ciudad, orden de fecha, fecha de requerido*/
+SELECT Customers.CompanyName as 'Nombre de Compa√±ia', Customers.ContactName as 'Nombre de Contacto', Customers.City as 'Ciudad', Orders.OrderDate as 'Orden de Fecha', Orders.RequiredDate as 'Feche de requerido'
 FROM Customers
 LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
 
+/*81. Consulta obtiene el nombre de la compa√±ia, nombre de contacto, ciudad, orden de fecha, fecha de requerido*/
+SELECT Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de Compa√±ia'
+FROM Products
+LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID;
 
-
-/* 59 Consulta obtiene el nombre de la compaÒia, nombre de contacto, ciudad, orden de fecha, fecha de requerido*/
-SELECT Products.ProductName as 'Nombre de Producto', Suppliers.CompanyName as 'Nombre de CompaÒia'
+/*82. Consulta obtiene el nombre de producto, precio por unidad, unidades en stock, nombre de compa√±ia, direccion, nombre de contacto, nombre de compa√±ia, telefono*/
+SELECT Products.ProductName as 'Nombre de Producto', Products.UnitPrice as 'Precio por Unidad', Products.UnitsInStock as 'Unidades en stock', Suppliers.CompanyName as 'Nombre de Compa√±ia', Suppliers.Address as 'Direccion',
+Suppliers.ContactName as 'Nombre de Contacto', Suppliers.CompanyName as 'Nombre de Compa√±ia', Suppliers.Phone as 'Telefono'
 FROM Products
 LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID;
 
 
 
-/* 60 Consulta obtiene el nombre de producto, precio por unidad, unidades en stock, nombre de compaÒia, direccion, nombre de contacto, nombre de compaÒia, telefono*/
-SELECT Products.ProductName as 'Nombre de Producto',Products.UnitPrice as 'Precio por Unidad',Products.UnitsInStock as 'Unidades en stock',Suppliers.CompanyName as 'Nombre de CompaÒia' , Suppliers.Address as 'Direccion',
-Suppliers.ContactName as 'Nombre de Contacto',Suppliers.CompanyName as 'Nombre de CompaÒia', Suppliers.Phone as 'Telefono'
-FROM Products
-LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID;
-
-
-
-/* 61 Consulta obtiene el nombre de compaÒia, id de orden, region*/
-SELECT Customers.CompanyName as 'Nombre de CompaÒia', Orders.OrderID as 'Id de Orden', Customers.Region as 'Region'
+/* 83 Consulta obtiene el nombre de compa√±ia, id de orden, region*/
+SELECT Customers.CompanyName as 'Nombre de Compa√±ia', Orders.OrderID as 'Id de Orden', Customers.Region as 'Region'
 FROM Customers
 LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
 
 
 
-/*consulta con LEFT JOIN para combinar las tablas "Productos" y "CategorÌas" 
-en funciÛn del ID de categorÌa (CategoryID). Luego, se aplica una condiciÛn WHERE
-para filtrar los resultados y seleccionar solo los productos que pertenecen a una categorÌa especÌfica.*/
+/*consulta con LEFT JOIN para combinar las tablas "Productos" y "Categor√≠as" 
+en funci√≥n del ID de categor√≠a (CategoryID). Luego, se aplica una condici√≥n WHERE
+para filtrar los resultados y seleccionar solo los productos que pertenecen a una categor√≠a espec√≠fica.*/
 
 
 
-/* 62 Consulta obtiene el nombre de producto, nombre de categoria*/
+/* 84 Consulta obtiene el nombre de producto, nombre de categoria*/
 SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria'
 FROM Products
 LEFT JOIN Categories ON Products.CategoryID = Categories.CategoryID
@@ -547,15 +657,15 @@ WHERE Categories.CategoryName = 'Meat/Poultry';
 
 
 
-/* 63 Consulta obtiene el nombre de compaÒia, nombre de producto*/
-SELECT Suppliers.CompanyName as 'Nombre de CompaÒia', Products.ProductName as 'Nombre de Producto'
+/* 85 Consulta obtiene el nombre de compa√±ia, nombre de producto*/
+SELECT Suppliers.CompanyName as 'Nombre de Compa√±ia', Products.ProductName as 'Nombre de Producto'
 FROM Suppliers
 LEFT JOIN Products ON Suppliers.SupplierID = Products.SupplierID
 WHERE Suppliers.CompanyName = 'New England Seafood Cannery';
 
 
 
-/* 64 Consulta obtiene el nombre de empleado, apellido de empleado, id de orden*/
+/* 86 Consulta obtiene el nombre de empleado, apellido de empleado, id de orden*/
 SELECT Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado', Orders.OrderID as 'Id de Orden'
 FROM Employees
 LEFT JOIN Orders ON Employees.EmployeeID = Orders.EmployeeID
@@ -563,16 +673,16 @@ WHERE Employees.LastName = 'King';
 
 
 
-/* 65 Consulta obtiene el id de orden, nombre de ship, nombre de compaÒia*/
-SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de Ship',Shippers.CompanyName as 'Nombre de CompaÒia'
+/* 87 Consulta obtiene el id de orden, nombre de ship, nombre de compa√±ia*/
+SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de Ship',Shippers.CompanyName as 'Nombre de Compa√±ia'
 FROM Orders
 LEFT JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Shippers.CompanyName = 'Speedy Express';
 
 
 
-/* 66 Consulta obtiene el nombre de compaÒia, id de orden y where espesifica Simons bistro*/
-SELECT Customers.CompanyName as 'Nombre de CompaÒia', Orders.OrderID as 'Id de Orden'
+/* 88 Consulta obtiene el nombre de compa√±ia, id de orden y where espesifica Simons bistro*/
+SELECT Customers.CompanyName as 'Nombre de Compa√±ia', Orders.OrderID as 'Id de Orden'
 FROM Customers
 LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
 WHERE Customers.CompanyName = 'Simons bistro';
@@ -580,12 +690,12 @@ WHERE Customers.CompanyName = 'Simons bistro';
 
 
 /*Consulta con LEFT JOIN para combinar las tablas "Employees", "Orders", "EmployeeTerritories" y "Territories" 
-en funciÛn de las relaciones entre ellas. Devolver· los nombres de los empleados, los ID de los pedidos y
+en funci√≥n de las relaciones entre ellas. Devolver√° los nombres de los empleados, los ID de los pedidos y
 las descripciones de los territorios asignados a cada empleado. 
-Si un empleado no tiene pedidos o territorios asignados, las columnas respectivas mostrar·n NULL.*/
+Si un empleado no tiene pedidos o territorios asignados, las columnas respectivas mostrar√°n NULL.*/
 
 
-/* 67 Consulta obtiene el nombre de empleado, apellido, id de orden, territorio de descripcion*/
+/* 89 Consulta obtiene el nombre de empleado, apellido, id de orden, territorio de descripcion*/
 SELECT Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado', Orders.OrderID as 'Id de Orden', Territories.TerritoryDescription as 'Territorio de Descripcion'
 FROM Employees
 LEFT JOIN Orders ON Employees.EmployeeID = Orders.EmployeeID
@@ -594,42 +704,42 @@ LEFT JOIN Territories ON EmployeeTerritories.TerritoryID = Territories.Territory
 
 
 
-/* 68 Consulta obtiene el nombre de producto, nombre de categoria, nombre de compaÒia*/
-SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia'
+/* 90 Consulta obtiene el nombre de producto, nombre de categoria, nombre de compa√±ia*/
+SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 LEFT JOIN Categories ON Products.CategoryID = Categories.CategoryID
 LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID;
 
 
-/* 69 Consulta obtiene el nombre de producto, cantidad, nombre de compaÒia*/
-SELECT Products.ProductName as 'Nombre de Producto',  [Order Details].Quantity as 'Cantidad', Suppliers.CompanyName as 'Nombre de CompaÒia'
+/* 91 Consulta obtiene el nombre de producto, cantidad, nombre de compa√±ia*/
+SELECT Products.ProductName as 'Nombre de Producto',  [Order Details].Quantity as 'Cantidad', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 LEFT JOIN [Order Details] ON Products.ProductID = [Order Details].ProductID
 LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID;
 
 
-/* 70 Consulta obtiene el id de orden, id de producto, nombre de compaÒia*/
-SELECT Orders.OrderID as 'Id de orden', [Order Details].ProductID as 'Id de Producto',Shippers.CompanyName as 'Nombre de CompaÒia'
+/* 92 Consulta obtiene el id de orden, id de producto, nombre de compa√±ia*/
+SELECT Orders.OrderID as 'Id de orden', [Order Details].ProductID as 'Id de Producto',Shippers.CompanyName as 'Nombre de Compa√±ia'
 FROM Orders
 LEFT JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
 LEFT JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID;
 
 
 
-/* 71 Consulta obtiene el nombre de la compaÒia, id de orden, id de producto, cantidad*/
-SELECT Customers.CompanyName as 'Nombre de CompaÒia', Orders.OrderID as 'Id de Orden', [Order Details].ProductID as 'Id de Producto', [Order Details].Quantity as 'Cantidad'
+/* 93 Consulta obtiene el nombre de la compa√±ia, id de orden, id de producto, cantidad*/
+SELECT Customers.CompanyName as 'Nombre de Compa√±ia', Orders.OrderID as 'Id de Orden', [Order Details].ProductID as 'Id de Producto', [Order Details].Quantity as 'Cantidad'
 FROM Customers
 LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
 LEFT JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID;
 
 
 
-/*LEFT JOIN para combinar las tablas mencionadas en funciÛn de las relaciones entre empleados,
-Ûrdenes, empleados y territorios. Luego, aplica una condiciÛn WHERE para 
-filtrar los resultados y seleccionar empleados y Ûrdenes asociadas con un territorio especÌfico*/
+/*LEFT JOIN para combinar las tablas mencionadas en funci√≥n de las relaciones entre empleados,
+√≥rdenes, empleados y territorios. Luego, aplica una condici√≥n WHERE para 
+filtrar los resultados y seleccionar empleados y √≥rdenes asociadas con un territorio espec√≠fico*/
 
 
-/* 72 Consulta obtiene el nombre de empleado, apellido de empleado, id de orden, territorio de descripcion*/
+/* 94 Consulta obtiene el nombre de empleado, apellido de empleado, id de orden, territorio de descripcion*/
 SELECT Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado', Orders.OrderID as 'Id de orden', Territories.TerritoryDescription as 'Territorio de Descripcion'
 FROM Employees
 LEFT JOIN Orders ON Employees.EmployeeID = Orders.EmployeeID
@@ -639,7 +749,7 @@ WHERE Territories.TerritoryDescription = 'Bloomfield Hills ';
 
 
 
-/* 73 Consulta obtiene el nombre de empleado, apellido de empleado, id de orden, territorio de descripcion*/
+/* 95 Consulta obtiene el nombre de empleado, apellido de empleado, id de orden, territorio de descripcion*/
 SELECT Employees.FirstName as 'Nombre de Empleado', Employees.LastName as 'Apellido de Empleado', Orders.OrderID as 'Id de orden', Territories.TerritoryDescription as 'Territorio de Descripcion'
 FROM Employees
 LEFT JOIN Orders ON Employees.EmployeeID = Orders.EmployeeID
@@ -649,8 +759,8 @@ WHERE Territories.TerritoryDescription = 'Cambridge';
 
 
 
-/* 74 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compaÒia*/
-SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia'
+/* 96 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compa√±ia*/
+SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 LEFT JOIN Categories ON Products.CategoryID = Categories.CategoryID
 LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -658,8 +768,8 @@ WHERE Categories.CategoryName = 'Dairy Products';
 
 
 
-/* 75 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compaÒia*/
-SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia'
+/* 97 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compa√±ia*/
+SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 LEFT JOIN Categories ON Products.CategoryID = Categories.CategoryID
 LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -668,8 +778,8 @@ WHERE Categories.CategoryName = 'Beverages';
 
 
 
-/* 76 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compaÒia*/
-SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia'
+/* 98 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compa√±ia*/
+SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 LEFT JOIN Categories ON Products.CategoryID = Categories.CategoryID
 LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -678,8 +788,8 @@ WHERE Categories.CategoryName = 'Condiments';
 
 
 
-/* 77 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compaÒia*/
-SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName  as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia'
+/* 99 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compa√±ia*/
+SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName  as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 LEFT JOIN Categories ON Products.CategoryID = Categories.CategoryID
 LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -688,8 +798,8 @@ WHERE Categories.CategoryName = 'Confections';
 
 
 
-/* 78 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compaÒia*/
-SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia'
+/* 100 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compa√±ia*/
+SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 LEFT JOIN Categories ON Products.CategoryID = Categories.CategoryID
 LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -698,8 +808,8 @@ WHERE Categories.CategoryName = 'Dairy Products';
 
 
 
-/* 79 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compaÒia*/
-SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia'
+/* 101 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compa√±ia*/
+SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 LEFT JOIN Categories ON Products.CategoryID = Categories.CategoryID
 LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -707,8 +817,8 @@ WHERE Categories.CategoryName = 'Grains/Cereals';
 
 
 
-/* 80 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compaÒia*/
-SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de CompaÒia'
+/* 102 Consulta obtiene el nombre del producto, nombre de categoria, nombre de compa√±ia*/
+SELECT Products.ProductName as 'Nombre de Producto', Categories.CategoryName as 'Nombre de Categoria', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 LEFT JOIN Categories ON Products.CategoryID = Categories.CategoryID
 LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
@@ -716,17 +826,17 @@ WHERE Categories.CategoryName = 'Produce';
 
 
 
-/* 81 Consulta obtiene el nombre del producto, cantidad, nombre de compaÒia*/
-SELECT Products.ProductName as 'Nombre de Producto',  [Order Details].Quantity as 'Cantidad', Suppliers.CompanyName as 'Nombre de CompaÒia'
+/* 103 Consulta obtiene el nombre del producto, cantidad, nombre de compa√±ia*/
+SELECT Products.ProductName as 'Nombre de Producto',  [Order Details].Quantity as 'Cantidad', Suppliers.CompanyName as 'Nombre de Compa√±ia'
 FROM Products
 LEFT JOIN [Order Details] ON Products.ProductID = [Order Details].ProductID
 LEFT JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
-WHERE Suppliers.CompanyName = 'Aux joyeux ecclÈsiastiques';
+WHERE Suppliers.CompanyName = 'Aux joyeux eccl√©siastiques';
 
 
-/* 82 Consulta obtiene el id de orden, id de producto, nombre de compaÒia*/
+/* 104 Consulta obtiene el id de orden, id de producto, nombre de compa√±ia*/
 SELECT Orders.OrderID as 'Id de Orden', [Order Details].ProductID as 'Id de Producto',
-    Shippers.CompanyName as 'Nombre de CompaÒia'
+    Shippers.CompanyName as 'Nombre de Compa√±ia'
 FROM Orders
 LEFT JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
 LEFT JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
@@ -734,8 +844,8 @@ WHERE Orders.OrderDate >= '1996-07-04 00:00:00.000' AND Orders.OrderDate <= '199
 
 
 
-/* 83 Consulta obtiene el id de orden, id de producto, nombre de compaÒia*/
-SELECT Customers.CompanyName as 'Nombre de CompaÒia', Orders.OrderID as 'Id de Orden', [Order Details].ProductID as 'Id de Producto', [Order Details].Quantity as 'Cantidad'
+/* 105 Consulta obtiene el id de orden, id de producto, nombre de compa√±ia*/
+SELECT Customers.CompanyName as 'Nombre de Compa√±ia', Orders.OrderID as 'Id de Orden', [Order Details].ProductID as 'Id de Producto', [Order Details].Quantity as 'Cantidad'
 FROM Customers
 LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
 LEFT JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
@@ -745,7 +855,7 @@ WHERE Customers.CompanyName = 'Ana Trujillo Emparedados y helados';
 ------------------------
 
 
-/* 84 Consulta obtiene el nombre de empleado con apellido, id de orden*/
+/* 106 Consulta obtiene el nombre de empleado con apellido, id de orden*/
 SELECT CONCAT(Employees.FirstName, ' ', Employees.LastName) AS 'Nombre de Empleado',
     Orders.OrderID as 'Id de orden'
 FROM Employees
@@ -753,7 +863,7 @@ LEFT JOIN Orders ON Employees.EmployeeID = Orders.EmployeeID;
 
 
 
-/* 85 Consulta obtiene el nombre de empleado con apellido, id de orden*/
+/* 107 Consulta obtiene el nombre de empleado con apellido, id de orden*/
 SELECT CONCAT(Employees.FirstName, ' ', Employees.LastName) AS 'Nombre de Empleado',
     Orders.OrderID as 'Id de orden'
 FROM Employees
@@ -762,15 +872,15 @@ where Orders.OrderID = '10787' ;
 
 
 
-/* 86 Consulta obtiene el nombre de compaÒia, numero de pedido*/
-SELECT Customers.CompanyName as 'Nombre de CompaÒia', Count(Orders.OrderID) AS 'Numero de Pedidos' FROM Orders
+/* 108 Consulta obtiene el nombre de compa√±ia, numero de pedido*/
+SELECT Customers.CompanyName as 'Nombre de Compa√±ia', Count(Orders.OrderID) AS 'Numero de Pedidos' FROM Orders
 LEFT JOIN Customers
 ON Orders.CustomerID=Customers.CustomerID
 GROUP BY Customers.CompanyName;
 
 
 
-/* 87 Consulta obtiene el nombre de producto, orden de cantidad*/
+/* 109 Consulta obtiene el nombre de producto, orden de cantidad*/
 SELECT   Products.ProductName as 'Nombre de Producto',
   COUNT([Order Details].ProductID) AS 'Orden de Cantidad'
 FROM Products
@@ -780,7 +890,7 @@ GROUP BY Products.ProductName;
 
 
 
-/* 88 Consulta obtiene el nombre de producto, orden de cantidad*/
+/* 110 Consulta obtiene el nombre de producto, orden de cantidad*/
 SELECT  Products.ProductName as 'Nombre de Producto',
  COUNT([Order Details].ProductID) AS 'Orden de Cantidad'
 FROM Products
@@ -790,14 +900,14 @@ GROUP BY Products.ProductName;
 
 
 
-/* 89 Consulta obtiene el id de orden, nommbre de producto, cantidad*/
+/* 111 Consulta obtiene el id de orden, nommbre de producto, cantidad*/
 SELECT Orders.OrderID as 'Id de Orden', Products.ProductName as 'Nombre de Producto', [Order Details].Quantity as 'Cantidad'
 FROM Orders
 LEFT JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
 LEFT JOIN Products ON [Order Details].ProductID = Products.ProductID;
 
 
-/* 90 Consulta obtiene el id de orden, nommbre de producto, cantidad*/
+/* 112 Consulta obtiene el id de orden, nommbre de producto, cantidad*/
 SELECT Orders.OrderID as 'Id de Orden', Products.ProductName as 'Nombre de Producto', [Order Details].Quantity as 'Cantidad'
 FROM Orders
 LEFT JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
@@ -807,7 +917,7 @@ WHERE [Order Details].Quantity > 10;
 
 
 
-/* 91 consulta obtiene el ID del empleado y la orden y nombre completo del empleado concatenando FirstName y LastName  y
+/* 113 consulta obtiene el ID del empleado y la orden y nombre completo del empleado concatenando FirstName y LastName  y
 la fecha de la orden y where busca el ID  de la orden */
 SELECT Employees.EmployeeID as 'Id de empleado',Orders.OrderID as 'Id de Orden',CONCAT(Employees.FirstName, ' ', Employees.LastName) AS 'Nombre de Empleado', Orders.OrderDate as 'Fecha de Orden', Orders.RequiredDate as 'Fecha de Requerido'
 FROM Orders
@@ -816,7 +926,7 @@ WHERE Orders.OrderID = '10250';
 /**/
 
 /*
- 92 consulta obtiene el ID del empleado y la orden y nombre completo del empleado concatenando FirstName y LastName  y
+ 114 consulta obtiene el ID del empleado y la orden y nombre completo del empleado concatenando FirstName y LastName  y
 la fecha de la orden y where busca el ID  del empleado */
 SELECT Employees.EmployeeID as 'Id de empleado',Orders.OrderID as 'Id de Orden',CONCAT(Employees.FirstName, ' ', Employees.LastName) AS 'Nombre de Empleado', Orders.OrderDate as 'Fecha de Orden', Orders.RequiredDate as 'Fecha de Requerido'
 FROM Orders
@@ -825,7 +935,7 @@ WHERE Employees.EmployeeID = '3';
 
 
 /*
- 93 consulta obtiene el ID del empleado y la orden y nombre completo del empleado concatenando FirstName y LastName  y
+ 115 consulta obtiene el ID del empleado y la orden y nombre completo del empleado concatenando FirstName y LastName  y
 la fecha de la orden y where busca el ID  del empleado */
 SELECT Employees.EmployeeID as 'Id de empleado',Orders.OrderID as 'Id de Orden',CONCAT(Employees.FirstName, ' ', Employees.LastName) AS 'Nombre de Empleado', Orders.OrderDate as 'Fecha de Orden', Orders.RequiredDate as 'Fecha de Requerido'
 FROM Orders
@@ -833,7 +943,7 @@ LEFT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
 WHERE Employees.EmployeeID = '8';
 
 
-/* 94 consulta obtiene el ID del empleado y la orden y nombre completo del empleado concatenando FirstName y LastName  y
+/* 116 consulta obtiene el ID del empleado y la orden y nombre completo del empleado concatenando FirstName y LastName  y
 la fecha de la orden y where busca el ID  del empleado */
 SELECT Employees.EmployeeID as 'Id de empleado',Orders.OrderID as 'Id de Orden',CONCAT(Employees.FirstName, ' ', Employees.LastName) AS 'Nombre de Empleado', Orders.OrderDate as 'Fecha de Orden', Orders.RequiredDate as 'Fecha de Requerido'
 FROM Orders
@@ -841,48 +951,213 @@ LEFT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
 WHERE Employees.EmployeeID = '1';
 /**/
 
-/* 95 consulta OBTIEne el ID del pedido  y el nombre de la compaÒia y where para buscar especificamente la compaÒia*/
-SELECT Orders.OrderID as 'Id de Orden', Shippers.CompanyName as 'Nombre de CompaÒia'
+/* 117 consulta obtiene el ID del pedido  y el nombre de la compa√±ia y where para buscar especificamente la compa√±ia*/
+SELECT Orders.OrderID as 'Id de Orden', Shippers.CompanyName as 'Nombre de Compa√±ia'
 FROM Orders
 LEFT JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Shippers.CompanyName = 'United Package';
 /**/
-/* 96 consulta OBTIEne el ID del pedido  y el nombre de la compaÒia , 
-y where para buscar especificamente la compaÒia y nombre del transportista*/
-SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de ship', Shippers.CompanyName as 'Nombre de CompaÒia'
+/* 118 consulta obtiene el ID del pedido  y el nombre de la compa√±ia , 
+y where para buscar especificamente la compa√±ia y nombre del transportista*/
+SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de ship', Shippers.CompanyName as 'Nombre de Compa√±ia'
 FROM Orders
 LEFT JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Orders.ShipName = 'Ernst Handel' and Shippers.CompanyName= 'United Package';
 
 
-/* 97 consulta OBTIEne el ID del pedido  y el nombre de la compaÒia , 
-y where para buscar especificamente la compaÒia y nombre del transportista*/
-SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de ship', Shippers.CompanyName as 'Nombre de CompaÒia', Shippers.Phone as 'Telefono'
+/* 119 consulta obtiene el ID del pedido  y el nombre de la compa√±ia , 
+y where para buscar especificamente la compa√±ia y nombre del transportista*/
+SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de ship', Shippers.CompanyName as 'Nombre de Compa√±ia', Shippers.Phone as 'Telefono'
 FROM Orders 
 LEFT JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Orders.ShipName = 'Hanari Carnes' and Shippers.CompanyName= 'Federal Shipping';
 
 
 /**/
-/* 98 consulta OBTIEne el ID del pedido  y el nombre de la compaÒia , 
+/* 120 consulta obtiene el ID del pedido  y el nombre de la compa√±ia , 
 y where para buscar especificamente el ID*/
-SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de ship', Shippers.CompanyName as 'Nombre de CompaÒia', Shippers.Phone as 'Telefono'
+SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de ship', Shippers.CompanyName as 'Nombre de Compa√±ia', Shippers.Phone as 'Telefono'
 FROM Orders
 LEFT JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Orders.OrderID = '10265';
 /**/
 
-/* 99 consulta OBTIEne el ID del pedido  y el nombre de la compaÒia , 
+/* 121 consulta obtiene el ID del pedido  y el nombre de la compa√±ia , 
 y where para buscar especificamente el ID*/
-SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de ship', Shippers.CompanyName as 'Nombre de CompaÒia', Shippers.Phone as 'Telefono'
+SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de ship', Shippers.CompanyName as 'Nombre de Compa√±ia', Shippers.Phone as 'Telefono'
 FROM Orders
 LEFT JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Orders.OrderID = '11061';
 /**/
 
-/* 100 consulta OBTIEne el ID del pedido  y el nombre de la compaÒia , 
+/* 122 consulta obtiene el ID del pedido  y el nombre de la compa√±ia , 
 y where para buscar especificamente el ID*/
-SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de ship', Shippers.CompanyName as 'Nombre de CompaÒia', Shippers.Phone as 'Telefono'
+SELECT Orders.OrderID as 'Id de Orden',Orders.ShipName as 'Nombre de ship', Shippers.CompanyName as 'Nombre de Compa√±ia', Shippers.Phone as 'Telefono'
 FROM Orders
 LEFT JOIN Shippers ON Orders.ShipVia = Shippers.ShipperID
 WHERE Orders.OrderID = '10269';
+
+
+
+/*123Consulta que combina informaci√≥n de productos y detalles de pedidos utilizando LEFT JOIN en la base de datos NORTHWIND. 
+Se extraen los primeros 5 caracteres del nombre del producto.*/
+SELECT Producto.ProductID AS 'ID de Producto',
+  SUBSTRING(Producto.ProductName, 1, 5) AS 'Primeros 5 Caracteres Nombre Producto'
+FROM   PRODUCTS AS Producto
+LEFT JOIN   [Order Details] AS Detalle ON  Producto.ProductID = Detalle.ProductID;
+
+/*124Consulta que combina informaci√≥n de pedidos y transportistas utilizando LEFT JOIN en la base de datos NORTHWIND. 
+Se extraen los primeros 4 caracteres del nombre del transportista.*/
+SELECT Pedido.OrderID AS 'N√∫mero de Pedido', SUBSTRING(Transportista.CompanyName, 1, 4) AS 'Primeros 4 Caracteres Nombre Transportista'
+FROM  ORDERS AS Pedido
+LEFT JOIN  SHIPPERS AS Transportista ON  Pedido.ShipVia = Transportista.ShipperID;
+
+/*125 Consulta que combina informaci√≥n de detalles de pedidos y pedidos utilizando LEFT JOIN en la base de datos NORTHWIND.
+Se extraen los primeros 5 caracteres del nombre del producto.*/
+SELECT Detalle.OrderID AS 'N√∫mero de Pedido',SUBSTRING(Producto.ProductName, 1, 14) AS 'Primeros 14 Caracteres Nombre Producto'
+FROM [Order Details] AS Detalle
+LEFT JOIN   ORDERS AS Pedido ON  Detalle.OrderID = Pedido.OrderID
+LEFT JOIN PRODUCTS AS Producto ON  Detalle.ProductID = Producto.ProductID
+WHERE Producto.ProductName = 'Queso Manchego La Pastora';
+
+/*126 Consulta que combina informaci√≥n de productos y proveedores utilizando LEFT JOIN en la base de datos NORTHWIND. 
+Se extraen los primeros 8 caracteres del nombre del proveedor.*/
+SELECT Producto.ProductID AS 'ID de Producto',
+       SUBSTRING(Proveedor.CompanyName, 1, 11) AS 'Primeros 10 Caracteres Compa√±√≠a Proveedor'
+FROM   PRODUCTS AS Producto
+LEFT JOIN  SUPPLIERS AS Proveedor
+ON  Producto.SupplierID = Proveedor.SupplierID
+WHERE Proveedor.CompanyName = 'New Orleans Cajun Delights';
+
+/*127 Consulta que combina informaci√≥n de pedidos, clientes y empleados utilizando LEFT JOIN en la base de datos NORTHWIND.
+Se extraen los primeros 5 caracteres del nombre del cliente.*/
+SELECT  Pedido.OrderID AS 'N√∫mero de Pedido',
+        SUBSTRING(Cliente.ContactName, 1, 5) AS 'Primeros 5 Caracteres Contacto Cliente',
+        SUBSTRING(Empleado.LastName, 1, 5) AS 'Primeros 5 Caracteres Nombre Empleado'
+FROM ORDERS AS Pedido
+LEFT JOIN  CUSTOMERS AS Cliente ON Pedido.CustomerID = Cliente.CustomerID
+LEFT JOIN EMPLOYEES AS Empleado ON  Pedido.EmployeeID = Empleado.EmployeeID
+WHERE Cliente.ContactName = 'Jaime Yorres';
+
+/*128 Consulta que combina informaci√≥n de asignaciones de empleados a territorios, territorios y empleados utilizando LEFT JOIN en la base de datos NORTHWIND. 
+Se extraen los primeros 7 caracteres del nombre del territorio.*/
+SELECT  Asignacion.EmployeeID AS 'ID de Empleado',SUBSTRING(Territorio.TerritoryDescription, 1, 7) AS 'Primeros 5 Caracteres Descripci√≥n Territorio',
+  SUBSTRING(Empleado.LastName, 1, 5) AS 'Primeros 5 Caracteres Apellido Empleado'
+FROM  EMPLOYEETERRITORIES AS Asignacion
+LEFT JOIN TERRITORIES AS Territorio ON  Asignacion.TerritoryID = Territorio.TerritoryID
+LEFT JOIN EMPLOYEES AS Empleado ON  Asignacion.EmployeeID = Empleado.EmployeeID ;
+
+/*129 Consulta que combina informaci√≥n de proveedores, productos y categor√≠as utilizando LEFT JOIN en la base de datos NORTHWIND. 
+Se extraen los primeros 10 caracteres del nombre del producto.*/
+SELECT 
+  Proveedor.CompanyName AS 'Nombre de Proveedor',
+  SUBSTRING(Producto.ProductName, 1, 10) AS 'Primeros 10 Caracteres Nombre Producto',
+  Categoria.CategoryName AS 'Nombre Categoria'
+FROM  PRODUCTS AS Producto
+LEFT JOIN  SUPPLIERS AS Proveedor ON Producto.SupplierID = Proveedor.SupplierID
+LEFT JOIN CATEGORIES AS Categoria ON  Producto.CategoryID = Categoria.CategoryID;
+
+/*130 Consulta que utiliza HAVING para encontrar clientes que han realizado m√°s de 3 pedidos en la base de datos NORTHWIND.*/
+SELECT  Cliente.CustomerID, COUNT(Pedido.OrderID) AS 'Total Pedidos'
+FROM  CUSTOMERS AS Cliente
+LEFT JOIN  ORDERS AS Pedido ON   Cliente.CustomerID = Pedido.CustomerID
+GROUP BY  Cliente.CustomerID
+HAVING  COUNT(Pedido.OrderID) > 3;
+
+/*131 Consulta que utiliza HAVING para encontrar empleados que hayan gestionado m√°s de 10 pedidos en la base de datos NORTHWIND.*/
+SELECT  Empleado.EmployeeID, COUNT(Pedido.OrderID) AS 'Total Pedidos Gestionados'
+FROM  EMPLOYEES AS Empleado
+LEFT JOIN ORDERS AS Pedido ON  Empleado.EmployeeID = Pedido.EmployeeID
+GROUP BY  Empleado.EmployeeID
+HAVING COUNT(Pedido.OrderID) > 10;
+
+/*132 Consulta que utiliza HAVING para encontrar categor√≠as de productos con m√°s de 5 productos en la base de datos NORTHWIND.*/
+SELECT   Categoria.CategoryName AS 'Nombre Categoria',  COUNT(Producto.ProductID) AS 'Total Productos'
+FROM   CATEGORIES AS Categoria
+LEFT JOIN  PRODUCTS AS Producto ON   Categoria.CategoryID = Producto.CategoryID
+GROUP BY   Categoria.CategoryName
+HAVING  COUNT(Producto.ProductID) > 5;
+
+/* 133 Consulta que utiliza HAVING para encontrar productos con m√°s de 100 unidades vendidas en detalles de pedidos en la base de datos NORTHWIND.*/
+SELECT Producto.ProductName AS 'Nombre Producto', SUM(Detalle.Quantity) AS 'Total Unidades Vendidas'
+FROM  PRODUCTS AS Producto
+LEFT JOIN  [Order Details] AS Detalle
+ON  Producto.ProductID = Detalle.ProductID
+GROUP BY   Producto.ProductName
+HAVING  SUM(Detalle.Quantity) > 100;
+
+/*134 Consulta que utiliza HAVING para encontrar transportistas que han entregado m√°s de 50 pedidos en la base de datos NORTHWIND.*/
+SELECT  Transportista.CompanyName AS 'Nombre Transportista',COUNT(Pedido.OrderID) AS 'Total Pedidos Entregados'
+FROM  SHIPPERS AS Transportista
+LEFT JOIN  ORDERS AS Pedido ON  Transportista.ShipperID = Pedido.ShipVia
+GROUP BY  Transportista.CompanyName
+HAVING   COUNT(Pedido.OrderID) > 50;
+
+/*135 Consulta que utiliza una filtraci√≥n por fecha para encontrar detalles de pedidos de productos vendidos despu√©s de una 
+fecha espec√≠fica en la base de datos NORTHWIND.*/
+SELECT  Detalle.OrderID AS 'Numero Pedido',  Detalle.ProductID AS 'ID Producto',  Detalle.Quantity AS 'Cantidad', Pedido.OrderDate AS 'Fecha Buscada'
+FROM [Order Details] AS Detalle
+LEFT JOIN ORDERS AS Pedido ON  Detalle.OrderID = Pedido.OrderID
+WHERE  Pedido.OrderDate > '1998-05-05 00:00:00.000';
+
+/*136 Consulta que utiliza una filtraci√≥n por tipo (CategoryName) y marca (SupplierName) de productos en la base de datos NORTHWIND.*/
+SELECT  Producto.ProductName AS 'Nombre Producto', Categoria.CategoryName AS 'Tipo Producto',  Proveedor.CompanyName AS 'Nombre Compa√±√≠a'
+FROM   PRODUCTS AS Producto
+LEFT JOIN  SUPPLIERS AS Proveedor ON  Producto.SupplierID = Proveedor.SupplierID
+LEFT JOIN   CATEGORIES AS Categoria ON   Producto.CategoryID = Categoria.CategoryID
+WHERE  Categoria.CategoryName = 'Grains/Cereals';
+
+/*137 Consulta que utiliza una filtraci√≥n por fecha para encontrar pedidos realizados despu√©s de una fecha espec√≠fica junto con informaci√≥n de clientes 
+y empleados en la base de datos NORTHWIND.*/
+SELECT  Pedido.OrderID AS 'ID Pedido', Cliente.ContactName AS 'Nombre Cliente',  Empleado.FirstName AS 'Nombre Empleado',  Pedido.OrderDate AS 'Fecha Pedido'
+FROM   ORDERS AS Pedido
+LEFT JOIN  CUSTOMERS AS Cliente ON  Pedido.CustomerID = Cliente.CustomerID
+LEFT JOIN  EMPLOYEES AS Empleado ON   Pedido.EmployeeID = Empleado.EmployeeID
+WHERE   Pedido.OrderDate > '1998-05-04 00:00:00.000';
+
+/*138 Consulta que utiliza una filtraci√≥n por tipo (CategoryName) y marca (SupplierName) de productos junto con informaci√≥n de proveedores
+y categor√≠as en la base de datos NORTHWIND.*/
+SELECT  Producto.ProductName AS 'Nombre Producto',  Categoria.CategoryName AS 'Categoria',  Proveedor.CompanyName AS 'Proveedor'
+FROM  PRODUCTS AS Producto
+LEFT JOIN  SUPPLIERS AS Proveedor ON  Producto.SupplierID = Proveedor.SupplierID
+LEFT JOIN CATEGORIES AS Categoria ON  Producto.CategoryID = Categoria.CategoryID
+WHERE  Categoria.CategoryName = 'Seafood' AND Proveedor.CompanyName = 'Tokyo Traders';
+
+/*139 Consulta que utiliza una filtraci√≥n por tipo (CategoryName) y marca (SupplierName) de productos junto con informaci√≥n de categor√≠as
+en la base de datos NORTHWIND.*/
+SELECT   Producto.ProductName AS 'Nombre Producto',  Categoria.CategoryName AS 'Categoria'
+FROM  PRODUCTS AS Producto
+LEFT JOIN  CATEGORIES AS Categoria ON  Producto.CategoryID = Categoria.CategoryID
+WHERE   Categoria.CategoryName = 'Confections' OR Producto.ProductName LIKE '%Northwoods Cranberry Sauce%';
+
+/*140 Consulta que utiliza una filtraci√≥n por tipo (CategoryName) y marca (SupplierName) de productos junto con informaci√≥n de categor√≠as
+en la base de datos NORTHWIND.*/
+SELECT   Producto.ProductName AS 'Nombre Producto',  Categoria.CategoryName AS 'Categoria'
+FROM  PRODUCTS AS Producto
+LEFT JOIN  CATEGORIES AS Categoria ON  Producto.CategoryID = Categoria.CategoryID
+WHERE   Categoria.CategoryName = 'Dairy Products' OR Producto.ProductName LIKE '%Aniseed Syrup%';
+
+/*141 Consulta que utiliza una filtraci√≥n por tipo (CategoryName) y marca (SupplierName) de productos junto con informaci√≥n de categor√≠as
+en la base de datos NORTHWIND.*/
+SELECT   Producto.ProductName AS 'Nombre Producto',  Categoria.CategoryName AS 'Categoria'
+FROM  PRODUCTS AS Producto
+LEFT JOIN  CATEGORIES AS Categoria ON  Producto.CategoryID = Categoria.CategoryID
+WHERE   Categoria.CategoryName = 'Meat/Poultry' OR Producto.ProductName LIKE '%Chang%';
+
+/* 142 Consulta que combina informaci√≥n de pedidos y clientes utilizando LEFT JOIN en la base de datos NORTHWIND.
+Se extraen los primeros 5 caracteres del nombre del cliente.*/
+SELECT Pedido.OrderID AS 'ID Pedido',SUBSTRING(Cliente.CompanyName, 1, 5) AS 'Primeros 5 Caracteres Nombre Cliente'
+FROM ORDERS AS Pedido
+LEFT JOIN  CUSTOMERS AS Cliente ON Pedido.CustomerID = Cliente.CustomerID;
+
+/*143 Consulta que combina informaci√≥n de empleados y pedidos utilizando LEFT JOIN en la base de datos NORTHWIND.
+Se extraen los primeros 3 caracteres del apellido del empleado.*/
+SELECT Empleado.EmployeeID AS 'ID Empleado',SUBSTRING(Empleado.LastName, 1, 3) AS 'Primeros 3 Caracteres Apellido Empleado'
+FROM  EMPLOYEES AS Empleado
+LEFT JOIN ORDERS AS Pedido ON Empleado.EmployeeID = Pedido.EmployeeID;
+
+/* 144 Consulta que combina informaci√≥n de productos y categor√≠as utilizando LEFT JOIN en la base de datos NORTHWIND. 
+Se extraen los primeros 10 caracteres del nombre del producto.*/
+SELECT  Producto.ProductID AS 'ID Producto', SUBSTRING(Producto.ProductName, 1, 10) AS 'Primeros 10 Caracteres Nombre Producto'
+FROM  PRODUCTS AS Producto
+LEFT JOIN   CATEGORIES AS Categoria ON  Producto.CategoryID = Categoria.CategoryID;
