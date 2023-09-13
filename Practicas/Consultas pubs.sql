@@ -1,8 +1,9 @@
-/* 1 Consulta Obtine la union de las dos tablas roysched y titles */
-select *
-From titles A														  
-inner join roysched B												  
-on (B.title_id = A.title_id)
+/* 1 Consulta que cuenta el número de ventas realizadas en cada tienda*/
+SELECT STORES.stor_name AS 'Nombre de Tienda', COUNT(SALES.ord_num) AS 'Número de Ventas'
+FROM STORES
+INNER JOIN SALES ON STORES.stor_id = SALES.stor_id
+GROUP BY STORES.stor_name;
+
 
 /* 2 Consulta Obtine referencia de titulo nombre de titulo el tipo y la realeza del libro el where espesifica cuantos titulos ahi con ese nombre */
 select A.title_id as 'Referencia de titulo',A.title as 'Nombre de titulo',A.type as 'Tipo de titulo',B.royalty as 'Realeza de libro'
@@ -11,96 +12,81 @@ inner join roysched B
 on (B.title_id = A.title_id)
 where A.title IN ('But Is It User Friendly?')
 
+/* 3 Consulta de Lista las tiendas y sus ventas ordenadas por fecha */
+SELECT Stores.stor_name AS 'Nombre de la Tienda', Sales.ord_date AS 'Fecha de Venta'
+FROM Stores
+INNER JOIN Sales ON Stores.stor_id = Sales.stor_id
+ORDER BY Sales.ord_date;
 
-/* 3 Consulta Obtine nombre de titulos los precios cuando se publicaron y su realeza */
-select A.title as 'Nombre de titulo',A.price as 'Precio de titulo',A.pubdate as 'Publicado',B.royalty as 'Realeza de libro'
-From titles A														  
-inner join roysched B												  
-on (B.title_id = A.title_id)
---where A.title IN ('But Is It User Friendly?')
+/* 4 Consulta que Muestra los descuentos en mayúsculas junto con las tiendas */
+SELECT upper(Discounts.discounttype) AS 'Tipo de Descuento en Mayúsculas', Stores.stor_name AS 'Nombre de la Tienda'
+FROM Discounts
+INNER JOIN Stores ON Discounts.stor_id = Stores.stor_id;
 
-
-/* 4 Consulta Obtine nombre de titulo precio del titulo y su informacion acerca del libro */
-select A.title as 'Nombre de titulo',A.price as 'Precio de titulo',B.pr_info as 'Informacion'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
-
-
-/* 5 Consulta Obtine el tipo de libro las unidades que vendio su informacion y su referencia */
-select A.type as 'Tipo de libro',A.ytd_sales as 'Unidades vendidas',B.pr_info as 'Informacion',B.pub_id as 'Referencia'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
+/* 5 Consulta de Lista los nombres de autores en minúsculas con sus respectivos libros */
+SELECT LOWER(Authors.au_fname) AS 'Nombre del Autor en Minúsculas', Titles.title AS 'Título del Libro'
+FROM TitleAuthor
+INNER JOIN Authors ON TitleAuthor.au_id = Authors.au_id
+INNER JOIN Titles ON TitleAuthor.title_id = Titles.title_id;
 
 
-/* 6 Consulta Obtine el tipo de libro las unidades que vendio su informacion y su referencia y el where espesifica el libro que nomas se quiere ver business */
-select A.type as 'Tipo de libro',A.ytd_sales as 'Unidades vendidas',B.pr_info as 'Informacion',B.pub_id as 'Referencia'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
-where A.type IN ('business')
+/* 6 Consulta que Encuentra la máxima cantidad vendida por título */
+SELECT Titles.title AS 'Título', MAX(Sales.qty) AS 'Máxima Cantidad Vendida'
+FROM Sales
+INNER JOIN Titles ON Sales.title_id = Titles.title_id
+GROUP BY Titles.title;
 
+/* 7 Consulta que Encuentra la mínima cantidad vendida por título */
+SELECT Titles.title AS 'Título', MIN(Sales.qty) AS 'Mínima Cantidad Vendida'
+FROM Sales
+INNER JOIN Titles ON Sales.title_id = Titles.title_id
+GROUP BY Titles.title;
 
-/* 7 Consulta Obtine el tipo de libro las unidades que vendio su informacion y su referencia y el where espesifica el libro que nomas se quiere ver mod_cook */
-select A.type as 'Tipo de libro',A.ytd_sales as 'Unidades vendidas',B.pr_info as 'Informacion',B.pub_id as 'Referencia'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
-where A.type IN ('mod_cook')
+/* 8 Consulta: Muestra los títulos en mayúsculas junto con los nombres de las editoriales */
+SELECT UPPER(Titles.title) AS 'Título en Mayúsculas', Publishers.pub_name AS 'Nombre de la Editorial'
+FROM Titles
+INNER JOIN Publishers ON Titles.pub_id = Publishers.pub_id;
 
-/* 8 Consulta Obtine el tipo de libro las unidades que vendio su informacion y su referencia y el where espesifica el libro que nomas se quiere ver UNDECIDED*/
-select A.type as 'Tipo de libro',A.ytd_sales as 'Unidades vendidas',B.pr_info as 'Informacion',B.pub_id as 'Referencia'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
-where A.type IN ('UNDECIDED')
+/* 9 Consulta: Lista los nombres de empleados en minúsculas junto con sus departamentos */
+SELECT LOWER(employee.fname) AS 'Nombre del Empleado en Minúsculas'
+FROM Publishers
+INNER JOIN employee ON Publishers.pub_id = employee.emp_id;
 
+/* 10 Consulta: Encuentra la mínima cantidad vendida por tienda */
+SELECT Stores.stor_name AS 'Nombre de la Tienda', MIN(Sales.qty) AS 'MINIMA Cantidad Vendida'
+FROM Stores
+INNER JOIN Sales ON Stores.stor_id = Sales.stor_id
+INNER JOIN Titles ON Sales.title_id = Titles.title_id
+GROUP BY Stores.stor_name;
 
-/* 9 Consulta Obtine el tipo de libro las unidades que vendio su informacion y su referencia y el where espesifica el libro que nomas se quiere ver popular_comp*/
-select A.type as 'Tipo de libro',A.ytd_sales as 'Unidades vendidas',B.pr_info as 'Informacion',B.pub_id as 'Referencia'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
-where A.type IN ('popular_comp')
+/* 11 Consulta: Encuentra la máxima cantidad vendida por tienda */
+SELECT Stores.stor_name AS 'Nombre de la Tienda', MAX(Sales.qty) AS 'Máxima Cantidad Vendida'
+FROM Stores
+INNER JOIN Sales ON Stores.stor_id = Sales.stor_id
+INNER JOIN Titles ON Sales.title_id = Titles.title_id
+GROUP BY Stores.stor_name;
 
+/* 12 Consulta: Lista los nombres de editoriales con el total de ventas, ordenados por editorial y título */
+SELECT Publishers.pub_name AS 'Nombre de la Editorial', Titles.title AS 'Título', SUM(Sales.qty) AS 'Total de Ventas'
+FROM Publishers
+INNER JOIN Titles ON Publishers.pub_id = Titles.pub_id
+INNER JOIN Sales ON Titles.title_id = Sales.title_id
+GROUP BY Publishers.pub_name, Titles.title
+ORDER BY Publishers.pub_name, Titles.title;
 
-/* 10 Consulta Obtine el tipo de libro las unidades que vendio su informacion y su referencia y el where espesifica el libro que nomas se quiere ver psychology*/
-select A.type as 'Tipo de libro',A.ytd_sales as 'Unidades vendidas',B.pr_info as 'Informacion',B.pub_id as 'Referencia'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
-where A.type IN ('psychology')
+/* 13 Consulta: Lista nombres de empleados y títulos de libros por editorial, ordenados alfabéticamente */
+SELECT employee.fname AS 'Nombre del Empleado', employee.lname AS 'Apellido del Empleado', Titles.title AS 'Título del Libro'
+FROM Publishers
+INNER JOIN employee ON Publishers.pub_id = employee.emp_id
+INNER JOIN Titles ON Publishers.pub_id = Titles.pub_id
+ORDER BY employee.lname, Titles.title;
 
+/* 14 Consulta: Lista nombres de editoriales en mayúsculas, ordenados alfabéticamente */
+SELECT UPPER(Publishers.pub_name) AS 'Nombre de la Editorial en Mayúsculas'
+FROM Titles
+INNER JOIN Publishers ON Titles.pub_id = Publishers.pub_id
+ORDER BY UPPER(Publishers.pub_name);
 
-/* 11 Consulta Obtine el tipo de libro las unidades que vendio su informacion y su referencia y el where espesifica el libro que nomas se quiere ver trad_cook*/
-select A.type as 'Tipo de libro',A.ytd_sales as 'Unidades vendidas',B.pr_info as 'Informacion',B.pub_id as 'Referencia'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
-where A.type IN ('trad_cook')
-
-/* 12 Consulta Obtine nombre de titulo publicado y logo del titulo*/
-select A.title as 'Nombre de titulo',A.pubdate as 'Publicado',B.logo as 'logo de titulo'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
-
-
-/* 13 Consulta Obtine nombre de titulo publicado y logo del titulo where espesifica solo los titulos business*/
-select A.title as 'Nombre de titulo',A.pubdate as 'Publicado',B.logo as 'logo de titulo'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
-where A.type IN ('business')
-
-
-/* 14 Consulta Obtine nombre de titulo publicado y logo del titulo where espesifica solo los titulos mod_cook*/
-select A.title as 'Nombre de titulo',A.pubdate as 'Publicado',B.logo as 'logo de titulo'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
-where A.type IN ('mod_cook')
 
 
 /* 15 Consulta Obtine nombre de titulo publicado y logo del titulo where espesifica solo los titulos UNDECIDED*/
@@ -110,23 +96,17 @@ inner join pub_info B
 on (B.pub_id = A.pub_id)
 where A.type IN ('UNDECIDED')
 
+/* 16. Obtener la cantidad mínima de ventas por tienda */
+SELECT STORES.stor_name AS 'Nombre de Tienda', MIN(SALES.qty) AS 'Cantidad Mínima Vendida'
+FROM STORES
+INNER JOIN SALES ON STORES.stor_id = SALES.stor_id
+GROUP BY STORES.stor_name;
 
-/* 16 Consulta Obtine nombre de titulo publicado y logo del titulo where espesifica el precio de libro*/
-select A.title as 'Nombre de titulo',A.pubdate as 'Publicado',B.logo as 'logo de titulo'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
-where A.price IN ('20.95')
-
-
-
-/* 17 Consulta Obtine nombre de titulo publicado y logo del titulo where espesifica solo los titulos popular_comp*/
-select A.title as 'Nombre de titulo',A.pubdate as 'Publicado',B.logo as 'logo de titulo'
-From titles A														  
-inner join pub_info B												  
-on (B.pub_id = A.pub_id)
-where A.type IN ('popular_comp')
-
+/* 17. Obtener la cantidad máxima de ventas por tienda */
+SELECT STORES.stor_name AS 'Nombre de Tienda', MAX(SALES.qty) AS 'Cantidad Máxima Vendida'
+FROM STORES
+INNER JOIN SALES ON STORES.stor_id = SALES.stor_id
+GROUP BY STORES.stor_name;
 
 /* 18 Consulta Obtine nombre de titulo publicado y logo del titulo where espesifica solo los titulos psychology*/
 select A.title as 'Nombre de titulo',A.pubdate as 'Publicado',B.logo as 'logo de titulo'
@@ -172,25 +152,30 @@ SELECT employee.emp_id as 'Numero de Empleado', employee.fname as 'Nombre de Emp
 FROM employee
 INNER JOIN jobs ON employee.job_id = jobs.job_id;
 
+
 /* 23 Consulta Obtine los numeros de empleado y el nombre de la publicadora*/
 SELECT employee.emp_id as 'Numero de Empleado', publishers.pub_name as 'Nombre de Publicadora'
 FROM employee
 INNER JOIN publishers ON employee.pub_id = publishers.pub_id;
 
-/* 24 Consulta Obtine los nombres de los libros y el nombre de la publicadora*/
-SELECT titles.Title as 'Titulos de libros', publishers.pub_name as 'Nombre de Publicadora'
-FROM titles
-INNER JOIN publishers ON titles.pub_id = publishers.pub_id;
+/* 24 consulta obtiene los la suma de cantidades de ventas por tienda */
+SELECT STORES.stor_name AS 'Nombre de Tienda', SUM(SALES.qty) AS 'Total de Cantidad Vendida'
+FROM STORES
+INNER JOIN SALES ON STORES.stor_id = SALES.stor_id
+GROUP BY STORES.stor_name;
 
-/* 25 Consulta Obtine los nombres de los libros y el nombre de la publicadora*/
-SELECT pub_info.pub_id as 'Indicador de numero', publishers.pub_name as 'Nombre', pub_info.pr_info as 'Informacion'
-FROM pub_info
-INNER JOIN publishers ON pub_info.pub_id = publishers.pub_id;
+/* 25 consulta obtiene los fechas de pedido y nombres de tiendas */
+SELECT SALES.ord_date AS 'Fecha de Pedido', STORES.stor_name AS 'Nombre de Tienda'
+FROM SALES
+INNER JOIN STORES ON SALES.stor_id = STORES.stor_id;
 
-/* 26 Consulta Obtine los indicadores de titulo y numero de autor*/
-SELECT titles.title_id as 'Indicador de titulo', titleauthor.au_id as 'Numero de autor'
-FROM titles
-INNER JOIN titleauthor ON titles.title_id = titleauthor.title_id;
+/* 26 consulta obtiene los nombres de tiendas y cantidad promedio de ventas superiores a 50 */
+SELECT STORES.stor_name AS 'Nombre de Tienda', AVG(SALES.qty) AS 'Cantidad Promedio'
+FROM STORES
+INNER JOIN SALES ON STORES.stor_id = SALES.stor_id
+GROUP BY STORES.stor_name
+HAVING AVG(SALES.qty) > 50;
+
 
 /* 27 Consulta Obtine los indicadores de titulo, realeza */
 SELECT titles.title_id as 'Indicador de titulo', roysched.royalty as 'Realeza'
@@ -789,6 +774,11 @@ FROM stores
 left JOIN sales ON stores.stor_id = sales.stor_id
 left JOIN discounts ON stores.stor_id = discounts.stor_id
 WHERE stores.stor_name = 'Bookbeat' ;
+
+
+
+
+
 
 
 
